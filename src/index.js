@@ -17,6 +17,16 @@ const ACCOUNT_CSP = [
   "base-uri 'self'",
 ].join("; ");
 
+function applySecurityHeaders(headers, isAccount = false) {
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("X-Frame-Options", "DENY");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  if (isAccount) {
+    headers.set("Content-Security-Policy", ACCOUNT_CSP);
+  }
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -28,10 +38,10 @@ export default {
 
     const response = await env.ASSETS.fetch(request);
     const path = url.pathname.replace(/\/+$/, "") || "/";
-    if (path !== "/account") return response;
-
     const headers = new Headers(response.headers);
-    headers.set("Content-Security-Policy", ACCOUNT_CSP);
+
+    applySecurityHeaders(headers, path === "/account");
+
     return new Response(response.body, {
       status: response.status,
       statusText: response.statusText,
