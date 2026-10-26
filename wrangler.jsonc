@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "shearbudget",
+  "compatibility_date": "2026-10-26",
+  "main": "src/index.js",
+  // Static assets only. The Worker redirects www (and shearbudget.app, if
+  // that hostname is later pointed here) and sets the account-page CSP.
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // /account and /privacy serve account/index.html and privacy/index.html
+    // with no .html suffix. /account is 200; /account/ redirects to /account.
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "shearbudget.com", "custom_domain": true },
+    { "pattern": "www.shearbudget.com", "custom_domain": true }
+  ]
+}
