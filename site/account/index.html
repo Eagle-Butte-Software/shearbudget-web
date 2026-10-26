@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/ShearLogoIcon.svg" type="image/svg+xml">
+  <title>Shear Budget account</title>
+  <link rel="canonical" href="https://shearbudget.com/account">
+  <meta property="og:title" content="Shear Budget account">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shearbudget.com/account">
+  <style>
+    :root { color-scheme: light dark; }
+    body { font: 16px/1.45 system-ui, -apple-system, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; -webkit-font-smoothing: antialiased; }
+    main { max-width: 32rem; margin: 0 auto; padding: 32px 16px 64px; }
+    h1 { font-size: 1.5rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+    h2 { font-size: 1.05rem; margin: 0 0 12px; }
+    section { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; margin-top: 16px; }
+    label { display: grid; gap: 4px; margin: 0 0 12px; font-size: .9rem; font-weight: 500; }
+    input, button { font: inherit; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px; }
+    input { background: #fff; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    button { cursor: pointer; background: #fff; }
+    button.primary { background: #0ea5e9; color: #0f172a; border-color: #0ea5e9; font-weight: 600; border-radius: 999px; padding: 8px 16px; }
+    button.danger { background: #fff; color: #be123c; border-color: #fecdd3; }
+    .hint { color: #64748b; font-size: .9rem; }
+    .brand { margin: 0 0 16px; font-size: .9rem; }
+    .brand a { color: inherit; }
+    .operator { margin: 28px 0 0; color: #64748b; font-size: .85rem; }
+    .error { color: #be123c; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #020617; color: #e2e8f0; }
+      section { background: #0f172a; border-color: #334155; }
+      input, button { background: #020617; color: inherit; border-color: #334155; }
+      button.primary { background: #0ea5e9; color: #0f172a; border-color: #0ea5e9; }
+      button.danger { background: transparent; color: #fb7185; border-color: #9f1239; }
+      .hint, .operator { color: #94a3b8; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="brand"><a href="/">Shear Budget™</a> by <a href="https://eaglesoftware.eaglebuttellc.com">Eagle Butte Software</a></p>
+    <h1>Shear Budget account</h1>
+    <p class="hint">Sign in to reset your password or permanently delete your account and the budget stored in the cloud. This page does not change the copy on a phone or computer until that device next opens the app.</p>
+
+    <section id="needs-config" hidden>
+      <p>Add the Supabase project URL and anon key in the configuration at the top of this file, then upload it again. Do not put the service role key here.</p>
+    </section>
+
+    <section id="signed-out">
+      <h2>Sign in</h2>
+      <form id="sign-in-form">
+        <label>Email
+          <input id="email" type="email" autocomplete="username" required>
+        </label>
+        <label>Password
+          <input id="password" type="password" autocomplete="current-password" required minlength="6">
+        </label>
+        <div class="actions">
+          <button class="primary" type="submit">Sign in</button>
+          <button type="button" id="forgot">Email me a reset link</button>
+        </div>
+      </form>
+      <p id="signed-out-status" class="hint" role="status"></p>
+    </section>
+
+    <section id="recovery" hidden>
+      <h2>Choose a new password</h2>
+      <form id="recovery-form">
+        <label>New password
+          <input id="new-password" type="password" autocomplete="new-password" required minlength="6">
+        </label>
+        <div class="actions">
+          <button class="primary" type="submit">Save password</button>
+        </div>
+      </form>
+      <p id="recovery-status" class="hint" role="status"></p>
+    </section>
+
+    <section id="signed-in" hidden>
+      <h2>Your account</h2>
+      <p id="who"></p>
+      <p class="hint">Delete account permanently deletes this login and the budget stored for it in the cloud. This cannot be undone. This page does not erase a phone or computer by itself. Signing out of the app on that device removes the budget from it.</p>
+      <div class="actions">
+        <button type="button" id="sign-out">Sign out</button>
+        <button type="button" id="delete" class="danger">Delete account</button>
+      </div>
+      <p id="signed-in-status" class="hint" role="status"></p>
+    </section>
+    <p class="operator">© 2026 Eagle Butte Software LLC</p>
+  </main>
+
+  <script>
+    // Publishable key is public by design; row-level security protects data.
+    // Never paste the service role key.
+    window.SHEAR_BUDGET_SUPABASE = {
+      url: 'https://xunwcyhpnxlsoaucbscq.supabase.co',
+      anonKey: 'sb_publishable_xGpyGtd8ykqfGbKRIrdkSA_tPMV6rEO',
+    };
+  </script>
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    const config = window.SHEAR_BUDGET_SUPABASE || {};
+    const url = (config.url || '').trim();
+    const anonKey = (config.anonKey || '').trim();
+    const needsConfig = document.getElementById('needs-config');
+    const signedOut = document.getElementById('signed-out');
+    const signedIn = document.getElementById('signed-in');
+    const recovery = document.getElementById('recovery');
+
+    function show(which) {
+      needsConfig.hidden = which !== 'config';
+      signedOut.hidden = which !== 'out';
+      signedIn.hidden = which !== 'in';
+      recovery.hidden = which !== 'recovery';
+    }
+
+    if (!url || !anonKey) {
+      show('config');
+    } else {
+      const client = createClient(url, anonKey, {
+        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+      });
+
+      function setStatus(id, text, isError) {
+        const node = document.getElementById(id);
+        node.textContent = text || '';
+        node.className = isError ? 'hint error' : 'hint';
+      }
+
+      async function refresh() {
+        const { data } = await client.auth.getSession();
+        const session = data && data.session;
+        if (!session) {
+          show('out');
+          return;
+        }
+        document.getElementById('who').textContent = 'Signed in as ' + (session.user.email || 'your account');
+        show('in');
+      }
+
+      client.auth.onAuthStateChange((event) => {
+        if (event === 'PASSWORD_RECOVERY') show('recovery');
+      });
+
+      document.getElementById('sign-in-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        setStatus('signed-out-status', '');
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const { error } = await client.auth.signInWithPassword({ email, password });
+        if (error) {
+          setStatus('signed-out-status', error.message, true);
+          return;
+        }
+        await refresh();
+      });
+
+      document.getElementById('forgot').addEventListener('click', async () => {
+        const email = document.getElementById('email').value.trim();
+        if (!email) {
+          setStatus('signed-out-status', 'Enter the email on the account.', true);
+          return;
+        }
+        const { error } = await client.auth.resetPasswordForEmail(email, { redirectTo: window.location.href.split('#')[0] });
+        if (error) {
+          setStatus('signed-out-status', error.message, true);
+          return;
+        }
+        setStatus('signed-out-status', 'If that email has an account, a reset link is on its way. Open it on this page.');
+      });
+
+      document.getElementById('recovery-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const password = document.getElementById('new-password').value;
+        const { error } = await client.auth.updateUser({ password });
+        if (error) {
+          setStatus('recovery-status', error.message, true);
+          return;
+        }
+        setStatus('recovery-status', 'Password saved. You can close this page and sign in from the app.');
+        await refresh();
+      });
+
+      document.getElementById('sign-out').addEventListener('click', async () => {
+        await client.auth.signOut({ scope: 'local' });
+        setStatus('signed-out-status', '');
+        await refresh();
+      });
+
+      document.getElementById('delete').addEventListener('click', async () => {
+        const yes = window.confirm('Delete this Shear Budget account and the budget stored in the cloud? This cannot be undone.');
+        if (!yes) return;
+        setStatus('signed-in-status', '');
+        const { error } = await client.rpc('delete_own_account');
+        if (error) {
+          setStatus('signed-in-status', error.message || 'Could not delete the account.', true);
+          return;
+        }
+        try { await client.auth.signOut({ scope: 'local' }); } catch (err) { /* the auth user is already gone */ }
+        setStatus('signed-out-status', 'The account and its cloud budget are deleted.');
+        show('out');
+      });
+
+      if (/type=recovery/.test(window.location.hash)) show('recovery');
+      else refresh();
+    }
+  </script>
+</body>
+</html>
