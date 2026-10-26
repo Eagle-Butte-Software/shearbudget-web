@@ -365,9 +365,51 @@ h1 {
 
 .page-hero h1 { max-width: 16ch; font-size: clamp(2rem, 4vw, 3rem); }
 
+.terms-hero .wrap { max-width: 40rem; }
+
+.terms-hero .status { margin-bottom: 16px; }
+
+.terms-hero h1 {
+  max-width: none;
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
+}
+
+.terms-hero blockquote,
+.prose blockquote {
+  margin: 0 0 18px;
+  padding: 12px 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green);
+  border-radius: 0 12px 12px 0;
+}
+
+.terms-hero blockquote p { margin: 0; color: var(--muted); }
+
 .prose { max-width: 40rem; padding-bottom: 48px; }
 
 .prose p { color: var(--muted); }
+
+.prose h2 {
+  margin: 1.75rem 0 0.65rem;
+  font-size: 1.35rem;
+}
+
+.prose ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--muted);
+}
+
+.prose li { margin: 0.4rem 0; }
+
+.prose strong { color: var(--ink); }
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 1.75rem 0;
+}
 
 .caption {
   margin: 8px 0 0;
