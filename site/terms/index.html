@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terms of Use — Shear Budget</title>
-  <meta name="description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.2 (draft), pending attorney review.">
+  <meta name="description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.3 (draft), pending attorney review.">
   <link rel="canonical" href="https://shearbudget.com/terms">
   <meta property="og:title" content="Shear Budget terms of use">
-  <meta property="og:description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.2 (draft), pending attorney review.">
+  <meta property="og:description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.3 (draft), pending attorney review.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shearbudget.com/terms">
   <meta name="theme-color" content="#2f7d5b">
@@ -33,7 +33,7 @@
   <main id="main">
     <section class="page-hero terms-hero">
       <div class="wrap">
-        <p class="status">Version 1.2 (draft)</p>
+        <p class="status">Version 1.3 (draft)</p>
         <!--
 DRAFT — NOT LEGAL ADVICE. This document is a working draft prepared for Eagle Butte Software LLC.
 It must be reviewed and approved by a licensed attorney (ideally one admitted in Colorado and familiar
@@ -48,7 +48,7 @@ Remove this comment block and the "Draft notice" below before publishing.
       </div>
     </section>
     <section class="prose wrap">
-      <p><strong>Version:</strong> 1.2-draft<br>
+      <p><strong>Version:</strong> 1.3-draft<br>
 <strong>Effective date:</strong> [EFFECTIVE DATE]<br>
 <strong>Last updated:</strong> [LAST UPDATED DATE]</p>
 
@@ -62,11 +62,11 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <ul>
 <li>Shear Budget is a budgeting tool. It is <strong>not a bank</strong>, and it does <strong>not give financial, tax, or legal advice</strong>.</li>
-<li>If you connect a bank account, the connection runs through <strong>Teller, Inc.</strong>, an independent third party. Access is <strong>read-only</strong>. Shear Budget <strong>cannot move your money</strong>.</li>
+<li>If you connect a bank account, the connection runs through <strong>Plaid Inc.</strong>, an independent third party. Access is <strong>read-only</strong>. Shear Budget <strong>cannot move your money</strong>.</li>
 <li>You can use Shear Budget <strong>without an account</strong>. Your budget then stays <strong>on your device only</strong>. Bank connections require signing in.</li>
 <li>If you sign in to sync, your device <strong>encrypts your budget end to end</strong> with a key that stays on your devices, so our servers store only encrypted data that <strong>we cannot read</strong>.</li>
 <li><strong>Keep your recovery code secret and safe.</strong> It is the key to your budget. Anyone who has it can read your budget, and <strong>we cannot recover or reset it</strong>. If you lose every device that holds your key <strong>and</strong> your recovery code, your synced budget <strong>cannot be recovered</strong>.</li>
-<li>Your bank login credentials go to Teller, <strong>not</strong> to us. We never see or store them. Our servers keep only an encrypted Teller access token and basic connection details (such as status, bank name, and last sync time). Your balances and transactions pass through our servers on the way to your device and are not stored or logged on our servers.</li>
+<li>Your bank login credentials go to Plaid (or your bank), <strong>not</strong> to us. We never see or store them. Our servers keep only an encrypted Plaid access token and basic connection details (such as status, bank name, and last sync time). Your balances and transactions pass through our servers on the way to your device and are not stored or logged on our servers. You can disconnect a bank in the app, at Plaid Portal (my.plaid.com), or through your bank.</li>
 <li>We <strong>do not sell</strong> your personal financial data.</li>
 <li>You can <strong>export your data</strong> at any time and <strong>delete your account</strong> in the app (deletion is immediate) or on the web.</li>
 <li>You must be <strong>18 or older</strong> and live in the <strong>United States</strong> to use Shear Budget.</li>
@@ -109,7 +109,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 <li><strong>Sync information about your encrypted budget:</strong> your account ID, a revision number, when the budget was last updated, and technical encryption details needed to decrypt it on your devices (the encryption method and a random value called an initialization vector). This information does not reveal your budget contents.</li>
 <li><strong>Bank-connection details:</strong> the information described in Section 6.6(b).</li>
 <li><strong>Terms acceptance records:</strong> which document you accepted (such as these Terms), its version, when you accepted, your platform, and your app version.</li>
-<li><strong>Logs:</strong> our own server functions log only limited, pre-approved technical information and do not log your transactions or access tokens. Our hosting provider also keeps its own platform request logs (which can include information such as IP addresses and request times) under its own policies, which we do not control.</li>
+<li><strong>Logs:</strong> our own server functions log only limited, pre-approved technical information and do not log your transactions or access tokens. Our hosting provider also keeps its own platform request logs (which can include information such as IP addresses and request times) under its own policies, which we do not control. Plaid also keeps a short-term record of our requests to Plaid and its responses (Section 6.6(c)).</li>
 <li>[IF PURCHASES ARE OFFERED: purchase and subscription status.]</li>
 </ul>
 
@@ -143,7 +143,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 <li>connect or try to connect a financial account that you do not own or are not authorized to access, or submit someone else's credentials or information;</li>
 <li>impersonate any person or misrepresent your identity;</li>
 <li>use bots, scrapers, or other automated means to access the Service, except through features we provide;</li>
-<li>interfere with, disrupt, overload, or try to gain unauthorized access to the Service, our systems, Teller's systems, or any financial institution's systems;</li>
+<li>interfere with, disrupt, overload, or try to gain unauthorized access to the Service, our systems, Plaid's systems, or any financial institution's systems;</li>
 <li>bypass any security, rate-limit, or access-control feature, including any block on your account or IP address;</li>
 <li>upload malware or harmful code;</li>
 <li>use the Service to violate any law or anyone else's rights; or</li>
@@ -162,35 +162,43 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>5.3 <strong>You make the decisions.</strong> You are solely responsible for your financial decisions, for checking your actual account balances with your bank, and for paying your bills on time. Do not rely on Shear Budget as your only record of your finances.</p>
 
-<h2>6. Third-party bank connections (Teller)</h2>
+<h2>6. Third-party bank connections (Plaid)</h2>
 
-<p>6.1 <strong>Optional feature.</strong> You can use Shear Budget with manually entered transactions. Connecting a bank, credit card, or other financial account ("<strong>Linked Account</strong>") is optional, and requires you to be signed in to a Shear Budget account.</p>
+<p>6.1 <strong>Optional feature.</strong> You can use Shear Budget with manually entered transactions. Connecting a bank, credit card, or other financial account ("<strong>Linked Account</strong>") is optional and requires you to be signed in to a Shear Budget account.</p>
 
-<p>6.2 <strong>Who provides the connection.</strong> Bank connections are provided by <strong>Teller, Inc.</strong> ("<strong>Teller</strong>"), an independent third-party service provider. Teller is not owned or controlled by Eagle Butte Software, and we are not owned or controlled by Teller. Teller is not a party to these Terms. Your financial institution is also an independent third party.</p>
+<p>6.2 <strong>Who provides the connection.</strong> Bank connections are provided by <strong>Plaid Inc.</strong> ("<strong>Plaid</strong>"), an independent third-party service provider. Plaid is not owned or controlled by Eagle Butte Software, and we are not owned or controlled by Plaid. Plaid is not a party to these Terms. Your financial institution is also an independent third party.</p>
 
-<p>6.3 <strong>Teller's terms and privacy policy.</strong> Before you connect a Linked Account, you must review and accept Teller's <strong>End User Terms of Service</strong> at <a href="https://teller.io/legal/user/terms">https://teller.io/legal/user/terms</a> and Teller's <strong>End User Privacy Policy</strong> at <a href="https://teller.io/legal/user/privacy">https://teller.io/legal/user/privacy</a>. Teller's terms and privacy policy govern how Teller collects, uses, stores, and shares your information. Teller's connection screens, including Teller's own account-selection and consent screens, appear when you connect. By connecting a Linked Account, you confirm that you have read and agree to Teller's terms and privacy policy. If you do not agree to them, do not connect a Linked Account.</p>
+<p>6.3 <strong>Plaid's End User Privacy Policy.</strong> Plaid collects, uses, shares, and keeps your information under its own <strong>End User Privacy Policy</strong>, available at <a href="https://plaid.com/legal/#end-user-privacy-policy">https://plaid.com/legal/#end-user-privacy-policy</a>. Before you connect a Linked Account, the app will ask you to review Plaid's End User Privacy Policy and agree to it by checking a box. Plaid's own connection screens, called "Plaid Link," then appear, including Plaid's consent screen and screens that explain what data is being requested and why. By connecting a Linked Account, you confirm that you have read Plaid's End User Privacy Policy and agree to Plaid processing your information as it describes. If you do not agree, do not connect a Linked Account. Plaid's policy does not cover what we do with your data. These Terms and our Privacy Policy do.</p>
 
-<p>6.4 <strong>Your authorization.</strong> When you connect a Linked Account, you authorize Eagle Butte Software and Teller to access and retrieve your account information and financial data from your financial institution <strong>on your behalf</strong>, limited to <strong>account details (such as account name, type, and institution), balances, and transaction history</strong>, and to transmit that data to your device so it can be stored in your encrypted budget, as described in Sections 3.4 and 6.6 and our Privacy Policy. Teller acts as your agent when it accesses your Linked Account, as described in Teller's End User Terms of Service. We do not request account-holder identity information (such as your name, address, or date of birth) or any payment capability from Teller. This authorization continues until you disconnect the Linked Account or delete your Shear Budget account.</p>
+<p>6.4 <strong>Your authorization.</strong> When you connect a Linked Account, you authorize Eagle Butte Software, and Plaid acting on your behalf, to access and retrieve your account information and financial data from your financial institution. The data is limited to <strong>account details (such as account name, type, and institution), balances, and transaction history</strong>. You also authorize us to transmit that data to your device so it can be stored in your encrypted budget, as described in Sections 3.4 and 6.6 and our Privacy Policy. We use this data only to show your accounts, balances, and transactions in Shear Budget and to keep them updated. We do not use it for any other purpose. As Plaid's End User Privacy Policy explains, when you give Plaid your login information, you give Plaid permission and authority to act on your behalf to access and transmit data from your financial institution. We request only Plaid's Transactions product, which includes account balances. We do not request Plaid's identity, account-and-routing-number, or payment products. This authorization continues until you disconnect the Linked Account, revoke access as described in Section 6.9, or delete your Shear Budget account.</p>
 
 <p>6.5 <strong>Read-only. No money movement.</strong> Shear Budget uses bank connections for <strong>read-only</strong> access. Shear Budget does not, and is not designed to, initiate payments, transfers, or any other movement of money from your Linked Accounts.</p>
 
 <p>6.6 <strong>Credentials, tokens, and where bank data goes.</strong></p>
 
-<p>(a) <strong>Your credentials go to Teller, not to us.</strong> When you connect a Linked Account, you enter your bank login credentials and any verification codes into Teller's connection interface. Teller handles those credentials. <strong>Eagle Butte Software does not receive or store your bank username or password.</strong></p>
+<p>(a) <strong>Your credentials go to Plaid or your bank, not to us.</strong> When you connect a Linked Account, you enter your bank login credentials and any verification codes into Plaid Link or, for some banks, directly into your bank's own sign-in page. <strong>Eagle Butte Software does not receive or store your bank username or password.</strong></p>
 
-<p>(b) <strong>What our servers store.</strong> After you connect, Teller gives us an access token that lets us retrieve data from the Linked Account. Our servers store <strong>only</strong> (i) that access token, in encrypted form, and (ii) basic connection details: the provider (Teller), Teller's enrollment identifier for the connection, the name of the financial institution, the connection status, a short error code if the connection has a problem, and when the connection was created and last synced. The access token is encrypted with keys that we control on our servers, not keys held only by you. That means it is not end-to-end encrypted. Our authorized personnel could technically decrypt it, and we limit that access to authorized personnel who need it to operate, secure, or support the Service.</p>
+<p>(b) <strong>What our servers store.</strong> After you connect, Plaid gives us an access token that lets us retrieve data from the Linked Account. Our servers store <strong>only</strong> (i) that access token, in encrypted form, and (ii) basic connection details: the provider (Plaid), Plaid's identifier for the connection (called an "Item"), the name of the financial institution, the connection status, a short error code if the connection has a problem, and when the connection was created and last synced [— CONFIRM FIELD LIST FOR THE PLAID SCHEMA]. The access token is encrypted with keys that we control on our servers, not keys held only by you, so it is not end-to-end encrypted. Our authorized personnel could technically decrypt it. We limit that access to authorized personnel who need it to operate, secure, or support the Service.</p>
 
-<p>(c) <strong>Transactions pass through; they are not stored on our servers.</strong> When your bank data syncs, account and transaction data is retrieved from Teller and passes through our servers, encrypted in transit, on its way to your device. We do not store that data on our servers, and our server functions do not write it to our logs. (Our hosting provider's own platform request logs, described in Section 3.4(c), record request details but not the contents we send to your device.) [COUNSEL/DEVELOPER: confirm Supabase platform logs do not capture response bodies before keeping the parenthetical.] Your device stores it locally and, if you are signed in, inside your end-to-end encrypted budget (Section 3.4).</p>
+<p>(c) <strong>Transactions pass through; they are not stored on our servers.</strong> When your bank data syncs, account, balance, and transaction data is retrieved from Plaid and passes through our servers, encrypted in transit, on its way to your device. We do not store that data on our servers, and our server functions do not write it to our logs. Our hosting provider keeps its own platform request logs, described in Section 3.4(c), which record request details but not the contents we send to your device. [COUNSEL/DEVELOPER: confirm that Supabase platform logs do not capture response bodies before keeping the previous sentence.] Plaid also keeps its own record of our requests to Plaid and Plaid's responses, and our authorized personnel can view that record for a limited time (currently 14 days) in Plaid's developer dashboard for troubleshooting. [CONFIRM WITH DEVELOPER whether those dashboard logs show transaction details, and whether dashboard access is limited to the owner.] Your device stores the data locally and, if you are signed in, inside your end-to-end encrypted budget (Section 3.4).</p>
 
-<p>(d) <strong>Teller's copy.</strong> Teller keeps its own copy of your credentials and financial data under its own End User Terms of Service and End User Privacy Policy. We do not control Teller's copy.</p>
+<p>(d) <strong>Plaid's copy.</strong> Plaid collects and keeps its own copy of your information under its End User Privacy Policy. We do not control Plaid's copy.</p>
 
 <p>6.7 <strong>You must own or be authorized.</strong> You may connect only accounts that you own or are legally authorized to access. You confirm you have the right to give the authorizations in this Section.</p>
 
-<p>6.8 <strong>Accuracy and availability not guaranteed.</strong> Account and transaction data comes from your financial institution through Teller. We do not control it and <strong>do not guarantee that it is accurate, complete, or up to date.</strong> Data may be delayed, missing, duplicated, or wrong, and connections may break or stop working, for example if your bank changes its systems, requires you to log in again, or stops supporting the connection, or if Teller's service is unavailable. Always confirm important information directly with your financial institution. Neither we nor Teller are responsible for errors in the data your financial institution provides or for your inability to access a Linked Account, to the extent permitted by law.</p>
+<p>6.8 <strong>Accuracy and availability not guaranteed.</strong> Account and transaction data comes from your financial institution through Plaid. We do not control it and <strong>do not guarantee that it is accurate, complete, or up to date.</strong> Data may be delayed, missing, duplicated, or wrong. Connections may also break or stop working, for example if your bank changes its systems, requires you to log in again, or stops supporting the connection, or if Plaid's service is unavailable. Always confirm important information directly with your financial institution. To the extent permitted by law, we are not responsible for errors in the data your financial institution or Plaid provides, or for your inability to access a Linked Account.</p>
 
-<p>6.9 <strong>Disconnect anytime.</strong> You can disconnect a Linked Account at any time in <strong>[Settings &gt; Linked Accounts — CONFIRM MENU NAME]</strong>. When you disconnect, we ask Teller to remove our access to that connection. If Teller confirms, we stop retrieving data and delete the stored access token and connection details from our servers. If that request to Teller fails, the app will show an error, the connection will stay listed, and you can try again. Transactions already imported stay in your budget on your device (and in your encrypted synced budget) unless you delete them or delete your account. You may also be able to revoke access through your financial institution. To have Teller delete data it holds, contact Teller as described in its End User Privacy Policy.</p>
+<p>6.9 <strong>Disconnect or revoke access anytime.</strong> You can end our access to a Linked Account at any time in any of these ways:</p>
 
-<p>6.10 <strong>Changes to providers.</strong> We may change or add bank-data providers, or stop offering bank connections, in the future. If a change would require you to agree to a new provider's terms, we will ask you before your data is accessed through that provider.</p>
+<ul>
+<li><strong>In the app:</strong> go to <strong>[Settings &gt; Linked Accounts — CONFIRM MENU NAME]</strong> and disconnect the account. We then ask Plaid to remove the connection, using Plaid's removal function, which makes the access token permanently invalid. If Plaid confirms the removal, we stop retrieving data and delete the stored access token and connection details from our servers. If that request to Plaid fails, the app will show an error, the connection will stay listed, and you can try again [— CONFIRM BEHAVIOR WITH PLAID].</li>
+<li><strong>Through Plaid Portal:</strong> at <a href="https://my.plaid.com">https://my.plaid.com</a>, you can see the apps you have connected through Plaid, disconnect Shear Budget from your financial accounts, and ask Plaid to delete data stored in Plaid's systems.</li>
+<li><strong>Through your bank:</strong> some financial institutions let you review and revoke third-party access in their own online banking settings.</li>
+</ul>
+
+<p>If you revoke access through Plaid Portal or your bank, we will stop receiving new data from that account [and, when Plaid notifies us of the revocation, delete the stored access token and connection details — CONFIRM WITH DEVELOPER]. Transactions already imported stay in your budget on your device (and in your encrypted synced budget) unless you delete them or delete your account. To ask Plaid to delete data it holds, use Plaid Portal or contact Plaid as described in its End User Privacy Policy.</p>
+
+<p>6.10 <strong>Changes to providers.</strong> We may change or add bank-data providers, or stop offering bank connections, in the future. Bank-data providers can also discontinue their services. If that happens, you may need to reconnect your accounts through a different provider. If a change would require you to agree to a new provider's terms or privacy policy, we will ask you before your data is accessed through that provider.</p>
 
 <h2>7. Your data and privacy</h2>
 
@@ -198,9 +206,9 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>7.2 <strong>Your data is yours.</strong> You own the budget data, notes, and other content you put into the Service ("<strong>Your Data</strong>"), including financial data imported from Linked Accounts. You give us a limited license to host, store, copy, transmit, and process Your Data, including the encrypted form of your synced budget, <strong>only</strong> as needed to provide, secure, and support the Service for you, and as described in the Privacy Policy. Because your synced budget is end-to-end encrypted, we store and transmit it without being able to read it.</p>
 
-<p>7.3 <strong>We do not sell your personal financial data.</strong> We do not sell your personal information or your financial data, and we do not share your financial data with third parties for their own marketing. We share data only with service providers that help us run the Service (for example, Supabase, our cloud hosting and authentication provider, which stores your encrypted budget and the encrypted Teller token, and Teller), when you direct us to, or when required by law, as described in the Privacy Policy. Because we cannot read your end-to-end encrypted budget, we could not provide its contents to anyone, including in response to legal process. We could provide only the encrypted data and the other information described in Section 3.4(c). [OPTIONAL — ADS: See Section 13 about advertising.]</p>
+<p>7.3 <strong>We do not sell your personal financial data.</strong> We do not sell your personal information or your financial data, and we do not share your financial data with third parties for their own marketing. We share data only with service providers that help us run the Service (for example, Supabase, our cloud hosting and authentication provider, which stores your encrypted budget and the encrypted Plaid token, and Plaid, which provides bank connections), when you direct us to, or when required by law, as described in the Privacy Policy. Because we cannot read your end-to-end encrypted budget, we could not provide its contents to anyone, including in response to legal process. We could provide only the encrypted data and the other information described in Section 3.4(c). [OPTIONAL — ADS: See Section 13 about advertising.]</p>
 
-<p>7.4 <strong>Security.</strong> We maintain an information security program with administrative, technical, and physical safeguards designed to protect customer information, consistent with the FTC Standards for Safeguarding Customer Information (the "Safeguards Rule," 16 C.F.R. Part 314) as it applies to us. These safeguards include end-to-end encryption of synced budget data (Section 3.4), encryption of data in transit, encryption of stored Teller access tokens with keys we control, access to production systems and keys limited to authorized personnel, and server logging limited to pre-approved technical information that excludes transactions and access tokens. However, <strong>no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</strong> You help protect your account by keeping your password, recovery code, and devices secure.</p>
+<p>7.4 <strong>Security.</strong> We maintain an information security program with administrative, technical, and physical safeguards designed to protect customer information, consistent with the FTC Standards for Safeguarding Customer Information (the "Safeguards Rule," 16 C.F.R. Part 314) as it applies to us. These safeguards include end-to-end encryption of synced budget data (Section 3.4), encryption of data in transit, encryption of stored Plaid access tokens with keys we control, access to production systems and keys limited to authorized personnel, and server logging limited to pre-approved technical information that excludes transactions and access tokens. However, <strong>no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</strong> You help protect your account by keeping your password, recovery code, and devices secure.</p>
 
 <p>7.5 <strong>Security incidents.</strong> If we learn of a security incident affecting your personal information, we will notify you and any regulators as required by applicable law.</p>
 
@@ -217,7 +225,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>8.3 <strong>What deletion does.</strong></p>
 
-<p>(a) <strong>Immediate deletion.</strong> When you delete your account in the app, we immediately delete your account, including your sign-in record and email address, your encrypted synced budget, your stored Teller access tokens, and your connection details from our database. We also ask Teller to remove our access to each of your bank connections. If a request to Teller fails, we still delete our records, but <strong>Teller may keep that connection active on its side</strong>. To be sure our access is revoked, you can also contact Teller (legal-notices@teller.io) or revoke third-party access through your bank.</p>
+<p>(a) <strong>Immediate deletion.</strong> When you delete your account in the app, we immediately delete your account, including your sign-in record and email address, your encrypted synced budget, your stored Plaid access tokens, and your connection details from our database. We also ask Plaid to remove each of your bank connections, which makes the access tokens permanently invalid. If a request to Plaid fails, we still delete our records, but <strong>Plaid may keep that connection active on its side</strong> [— CONFIRM CURRENT BEHAVIOR WITH DEVELOPER]. To make sure access is revoked, you can also disconnect Shear Budget at Plaid Portal (<a href="https://my.plaid.com">https://my.plaid.com</a>) or revoke third-party access through your bank.</p>
 
 <p>(b) <strong>Backups.</strong> We do not currently keep separate backups of our database. Once your data is deleted, we cannot restore it. Our hosting provider may keep residual copies in its own systems or logs for a limited time under its own policies. If we start using database backups in the future, deleted data may remain in those backups until they expire, which will be no more than [7] days. We will update these Terms and the Privacy Policy before that change takes effect. Any data in backups or provider systems is your encrypted budget or the encrypted token, which we cannot use to read your budget.</p>
 
@@ -225,7 +233,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>(d) <strong>Data on your devices.</strong> Deleting your account removes your data from our servers. It also clears the local copy on the device you used to delete your account. <strong>Your other devices keep their local copies (including your budget key) until you sign out of Shear Budget or uninstall the app on each of them</strong>, so please do that on every other device. Exported files you saved are not deleted.</p>
 
-<p>(e) <strong>Teller's copy.</strong> Deleting your Shear Budget account does not delete data Teller holds under its own policies. Contact Teller (legal-notices@teller.io) to request that.</p>
+<p>(e) <strong>Plaid's copy.</strong> Deleting your Shear Budget account does not by itself delete data Plaid holds under its own End User Privacy Policy. Plaid's policy says that when an app removes your connection, Plaid's systems are designed to automatically delete your personal data, subject to certain exceptions described in that policy. To ask Plaid directly, use Plaid Portal (<a href="https://my.plaid.com">https://my.plaid.com</a>) or Plaid's privacy request options described in its End User Privacy Policy.</p>
 
 <p>8.4 <strong>Subscriptions are separate.</strong> Deleting your account <strong>does not automatically cancel</strong> a subscription bought through Google Play [or Apple]. Please cancel it in the store first (see Section 12). [IF WEB BILLING: Deleting your account will cancel any subscription you bought directly from us on our website.]</p>
 
@@ -293,11 +301,11 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <h2>14. Third-party services and links</h2>
 
-<p>The Service relies on and may link to third-party services, including Teller, your financial institution, Google Play, and Supabase (our cloud hosting and authentication provider). We do not control third-party services and are not responsible for them. Your use of a third-party service is governed by that third party's own terms and privacy policy.</p>
+<p>The Service relies on and may link to third-party services, including Plaid, your financial institution, Google Play, and Supabase (our cloud hosting and authentication provider). We do not control third-party services and are not responsible for them. Your use of a third-party service is governed by that third party's own terms and privacy policy.</p>
 
 <h2>15. Disclaimers</h2>
 
-<p>15.1 <strong>"As is."</strong> TO THE FULLEST EXTENT PERMITTED BY LAW, THE SERVICE (INCLUDING ALL DATA RETRIEVED THROUGH TELLER OR FROM YOUR FINANCIAL INSTITUTION) IS PROVIDED <strong>"AS IS" AND "AS AVAILABLE,"</strong> WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
+<p>15.1 <strong>"As is."</strong> TO THE FULLEST EXTENT PERMITTED BY LAW, THE SERVICE (INCLUDING ALL DATA RETRIEVED THROUGH PLAID OR FROM YOUR FINANCIAL INSTITUTION) IS PROVIDED <strong>"AS IS" AND "AS AVAILABLE,"</strong> WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
 
 <p>15.2 <strong>No guarantees.</strong> WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE; THAT ANY DATA WILL BE ACCURATE, COMPLETE, OR CURRENT; THAT SYNC WILL ALWAYS WORK; THAT ANY BANK CONNECTION WILL BE AVAILABLE OR CONTINUE TO WORK; OR THAT USING THE SERVICE WILL ACHIEVE ANY FINANCIAL RESULT.</p>
 
@@ -317,13 +325,13 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <h2>17. Indemnity</h2>
 
-<p>To the fullest extent permitted by law, you agree to defend, indemnify, and hold harmless Eagle Butte Software, Eagle Butte LLC, and their affiliates, officers, members, managers, employees, and agents from any third-party claims, losses, liabilities, damages, and expenses (including reasonable attorneys' fees) arising out of (a) your violation of these Terms; (b) your violation of any law or the rights of a third party; or (c) your connecting, or attempting to connect, a financial account you do not own or are not authorized to access, or otherwise misusing a bank connection, including claims brought by Teller or a financial institution. This Section does not require you to indemnify us for claims caused by our own negligence or misconduct. We may take over the defense of any claim at our own cost, and you agree to cooperate.</p>
+<p>To the fullest extent permitted by law, you agree to defend, indemnify, and hold harmless Eagle Butte Software, Eagle Butte LLC, and their affiliates, officers, members, managers, employees, and agents from any third-party claims, losses, liabilities, damages, and expenses (including reasonable attorneys' fees) arising out of (a) your violation of these Terms; (b) your violation of any law or the rights of a third party; or (c) your connecting, or attempting to connect, a financial account you do not own or are not authorized to access, or otherwise misusing a bank connection, including claims brought by Plaid or a financial institution. This Section does not require you to indemnify us for claims caused by our own negligence or misconduct. We may take over the defense of any claim at our own cost, and you agree to cooperate.</p>
 
 <h2>18. Suspension and termination</h2>
 
 <p>18.1 <strong>By you.</strong> You may stop using the Service at any time and may delete your account as described in Section 8. Remember to cancel any app-store Subscription separately.</p>
 
-<p>18.2 <strong>By us.</strong> We may suspend or end your access to the Service, with notice when reasonably possible, if you violate these Terms, if required by law, if Teller or a financial institution requires it, if your use creates a security or legal risk, or if we stop offering the Service. If we end the Service for everyone or terminate your account without cause, we will give you reasonable advance notice [of at least [30] days] when practical so you can export Your Data from the app, and we will refund the unused, prepaid portion of any Subscription bought directly from us [or work with you on a refund for store purchases where possible].</p>
+<p>18.2 <strong>By us.</strong> We may suspend or end your access to the Service, with notice when reasonably possible, if you violate these Terms, if required by law, if Plaid or a financial institution requires it, if your use creates a security or legal risk, or if we stop offering the Service. If we end the Service for everyone or terminate your account without cause, we will give you reasonable advance notice [of at least [30] days] when practical so you can export Your Data from the app, and we will refund the unused, prepaid portion of any Subscription bought directly from us [or work with you on a refund for store purchases where possible].</p>
 
 <p>18.3 <strong>Effect.</strong> When your account ends, your license ends and you must stop using the Service. Sections that by their nature should survive will survive, including Sections 4.2, 4.5, 5, 6.8, 7.3, 8.3, 15, 16, 17, 21, 22, and 25.</p>
 
@@ -401,7 +409,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <h2>25. General terms</h2>
 
-<p>25.1 <strong>Entire agreement.</strong> These Terms, together with the Privacy Policy and any terms shown to you at the time of a purchase, are the entire agreement between you and us about the Service and replace any prior agreements about it. Teller's End User Terms of Service and End User Privacy Policy are separate agreements between you and Teller.</p>
+<p>25.1 <strong>Entire agreement.</strong> These Terms, together with the Privacy Policy and any terms shown to you at the time of a purchase, are the entire agreement between you and us about the Service and replace any prior agreements about it. Plaid's End User Privacy Policy, and any terms Plaid presents to you, are separate from these Terms and are between you and Plaid.</p>
 
 <p>25.2 <strong>Severability.</strong> If any part of these Terms is found unenforceable, that part will be enforced to the maximum extent permitted, and the rest of these Terms will remain in full effect.</p>
 
@@ -409,7 +417,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>25.4 <strong>Assignment.</strong> You may not transfer these Terms or your account without our written consent. We may transfer these Terms in connection with a merger, acquisition, reorganization, or sale of assets, or to an affiliate, including our parent company, Eagle Butte LLC. If that happens, the Privacy Policy will continue to protect your information, and we will notify you.</p>
 
-<p>25.5 <strong>Force majeure.</strong> We are not responsible for delays or failures caused by events beyond our reasonable control, including outages at Teller, your financial institution, our hosting providers, or internet or power providers.</p>
+<p>25.5 <strong>Force majeure.</strong> We are not responsible for delays or failures caused by events beyond our reasonable control, including outages at Plaid, your financial institution, our hosting providers, or internet or power providers.</p>
 
 <p>25.6 <strong>No third-party beneficiaries.</strong> Except as stated in Section 20.2(j), there are no third-party beneficiaries of these Terms.</p>
 
@@ -426,11 +434,11 @@ Email: <strong>legal@shearbudget.com</strong><br>
 [Support: SUPPORT EMAIL, e.g., support@shearbudget.com]<br>
 Website: <a href="https://shearbudget.com">https://shearbudget.com</a></p>
 
-<p>For questions about Teller's bank connection service or data Teller holds, contact Teller at legal-notices@teller.io or see <a href="https://teller.io/legal">https://teller.io/legal</a>.</p>
+<p>For questions about Plaid's bank connection service or data Plaid holds, see Plaid's End User Privacy Policy at <a href="https://plaid.com/legal/#end-user-privacy-policy">https://plaid.com/legal/#end-user-privacy-policy</a>, manage your connections at <a href="https://my.plaid.com">https://my.plaid.com</a>, or contact Plaid at privacy@plaid.com.</p>
 
 <hr>
 
-<p><em>Shear Budget Terms of Use and EULA — Version 1.2-draft — Effective [EFFECTIVE DATE]</em></p>
+<p><em>Shear Budget Terms of Use and EULA — Version 1.3-draft — Effective [EFFECTIVE DATE]</em></p>
     </section>
   </main>
 
