@@ -27,6 +27,9 @@
     .brand { margin: 0 0 16px; font-size: .9rem; }
     .brand a { color: inherit; }
     .operator { margin: 28px 0 0; color: #64748b; font-size: .85rem; }
+    .legal-links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+    .legal-links a { color: inherit; }
+    .operator + .operator { margin-top: 8px; }
     .error { color: #be123c; }
     @media (prefers-color-scheme: dark) {
       body { background: #020617; color: #e2e8f0; }
@@ -88,6 +91,7 @@
       </div>
       <p id="signed-in-status" class="hint" role="status"></p>
     </section>
+    <p class="operator legal-links"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></p>
     <p class="operator">© 2026 Eagle Butte Software LLC</p>
   </main>
 

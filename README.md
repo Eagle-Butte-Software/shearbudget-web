@@ -2,7 +2,7 @@
 
 Static site for [shearbudget.com](https://shearbudget.com). Cloudflare Workers serves the built files. Eagle Butte’s company, software, and rental sites stay on Netlify.
 
-`npm run build` copies `site/` to `dist/`. Pages are `/`, `/account`, and `/privacy`.
+`npm run build` copies `site/` to `dist/`. Pages are `/`, `/account`, `/privacy`, and `/terms`.
 
 This folder is the whole site. It has its own `package.json`, build, and Wrangler config, and it does not import anything from a parent repository. Copied as-is, it is the root of [shearbudget-web](https://github.com/Eagle-Butte-Software/shearbudget-web).
 

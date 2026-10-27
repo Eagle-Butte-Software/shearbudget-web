@@ -17,5 +17,8 @@
   "routes": [
     { "pattern": "shearbudget.com", "custom_domain": true },
     { "pattern": "www.shearbudget.com", "custom_domain": true }
-  ]
+  ],
+  // Worker Previews require this block. It can be empty: assets and
+  // compatibility settings stay at the top level.
+  "previews": {}
 }
