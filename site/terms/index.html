@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terms of Use — Shear Budget</title>
-  <meta name="description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.0 (draft), pending attorney review.">
+  <meta name="description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.1 (draft), pending attorney review.">
   <link rel="canonical" href="https://shearbudget.com/terms">
   <meta property="og:title" content="Shear Budget terms of use">
-  <meta property="og:description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.0 (draft), pending attorney review.">
+  <meta property="og:description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.1 (draft), pending attorney review.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shearbudget.com/terms">
   <meta name="theme-color" content="#2f7d5b">
@@ -33,7 +33,7 @@
   <main id="main">
     <section class="page-hero terms-hero">
       <div class="wrap">
-        <p class="status">Version 1.0 (draft)</p>
+        <p class="status">Version 1.1 (draft)</p>
         <!--
 DRAFT — NOT LEGAL ADVICE. This document is a working draft prepared for Eagle Butte Software LLC.
 It must be reviewed and approved by a licensed attorney (ideally one admitted in Colorado and familiar
@@ -48,7 +48,7 @@ Remove this comment block and the "Draft notice" below before publishing.
       </div>
     </section>
     <section class="prose wrap">
-      <p><strong>Version:</strong> 1.0<br>
+      <p><strong>Version:</strong> 1.1-draft<br>
 <strong>Effective date:</strong> [EFFECTIVE DATE]<br>
 <strong>Last updated:</strong> [LAST UPDATED DATE]</p>
 
@@ -63,9 +63,10 @@ Remove this comment block and the "Draft notice" below before publishing.
 <ul>
 <li>Shear Budget is a budgeting tool. It is <strong>not a bank</strong>, and it does <strong>not give financial, tax, or legal advice</strong>.</li>
 <li>If you connect a bank account, the connection runs through <strong>Teller, Inc.</strong>, an independent third party. Access is <strong>read-only</strong>. Shear Budget <strong>cannot move your money</strong>.</li>
-<li>Your bank login credentials go to Teller, <strong>not</strong> to us. We do not store them.</li>
+<li>If you use Shear Budget without signing in, your budget stays <strong>on your device only</strong>. If you sign in to sync, your device <strong>encrypts your budget end to end</strong> before uploading it, so our servers store only encrypted data that <strong>we cannot read</strong>. [CONFIRM: If you lose your password or encryption keys, we may not be able to recover your synced data.]</li>
+<li>Your bank login credentials go to Teller, <strong>not</strong> to us. We never see or store them. Our servers keep only an encrypted Teller access token and basic connection details (such as status, bank name, and last sync time). Your transactions pass through our servers on the way to your device and are not stored on our servers.</li>
 <li>We <strong>do not sell</strong> your personal financial data.</li>
-<li>You can <strong>export your data</strong> and <strong>delete your account</strong> at any time, in the app or on the web.</li>
+<li>You can <strong>export your data</strong> at any time and <strong>delete your account</strong> in the app (deletion is immediate) or on the web.</li>
 <li>You must be <strong>18 or older</strong> and live in the <strong>United States</strong> to use Shear Budget.</li>
 </ul>
 
@@ -89,11 +90,21 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>3.1 <strong>Accurate information.</strong> You agree to give us accurate, current information when you create your account and to keep it up to date.</p>
 
-<p>3.2 <strong>Security.</strong> You are responsible for keeping your Shear Budget password and devices secure and for all activity under your account. Use a strong, unique password and turn on [multi-factor authentication — IF OFFERED]. Tell us right away at [SUPPORT EMAIL / legal@shearbudget.com] if you believe your account has been accessed without permission.</p>
+<p>3.2 <strong>Security.</strong> You are responsible for keeping your Shear Budget password, [encryption keys or recovery key — CONFIRM TERM USED IN APP,] and devices secure, and for all activity under your account. Use a strong, unique password and turn on [multi-factor authentication — IF OFFERED]. Tell us right away at [SUPPORT EMAIL / legal@shearbudget.com] if you believe your account has been accessed without permission. Because your synced budget is end-to-end encrypted (Section 3.4), keeping your password [and recovery key] safe is especially important.</p>
 
 <p>3.3 <strong>One person per account.</strong> Your account is for you. Do not share your login or let someone else use your account. [OPTIONAL — SHARED BUDGETS: If the Service offers shared or household budgets, each person must have their own account, and you are responsible for what you choose to share.]</p>
 
-<p>3.4 <strong>Sync across devices.</strong> Your account and budget data are stored in the cloud and sync across the devices where you sign in. You need an internet connection for sync and bank connections to work.</p>
+<p>3.4 <strong>Where your budget is stored, and sync.</strong></p>
+
+<p>(a) <strong>Signed out (local-only).</strong> You can use Shear Budget without signing in [CONFIRM which features work signed out; bank connections require an account — CONFIRM]. When you are signed out, your budget data is stored only on your device and is not uploaded to our servers. If you lose, reset, or uninstall the app from that device, or clear its data, your local budget may be permanently lost unless you have exported it.</p>
+
+<p>(b) <strong>Signed in (end-to-end encrypted sync).</strong> When you sign in, your device encrypts your budget data before it leaves the device, and our cloud database (hosted by [Supabase]) stores only the encrypted version ("ciphertext"). The keys needed to decrypt it are [derived from your password / stored on your devices — CONFIRM] and are not available to us, so <strong>we cannot read the contents of your budget</strong>, including your Earmarks, Stash, transactions, and notes. Your devices decrypt the data locally to show it to you and to sync it across the devices where you sign in.</p>
+
+<p>(c) <strong>What we can still see.</strong> End-to-end encryption protects your budget contents, but we do still process some information to run the Service. This includes your account email, sign-in and device information, the size and timing of sync activity, purchase and subscription status, the bank-connection information described in Section 6.6, and the records of your acceptance of these Terms. The Privacy Policy describes this information.</p>
+
+<p>(d) <strong>Lost password or keys.</strong> [CONFIRM WITH DEVELOPER: Because we do not hold the keys to your budget, <strong>if you forget your password and lose [your recovery key / access to all of your signed-in devices], we may not be able to recover or decrypt your synced budget data</strong>, and you may have to start over. We may be able to restore access to your account itself, but not to the encrypted contents.] We recommend exporting your data regularly (Section 8.1).</p>
+
+<p>(e) <strong>Connectivity.</strong> You need an internet connection for sync and bank connections to work.</p>
 
 <h2>4. License to use the app</h2>
 
@@ -123,9 +134,9 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <h2>5. Not financial, tax, or legal advice. Not a bank.</h2>
 
-<p>5.1 <strong>Budgeting tool only.</strong> Shear Budget is a tool to help you organize and plan your money using an envelope-style budgeting method. Any categories, reports, insights, projections, or suggestions in the Service are general information and are <strong>not</strong> financial, investment, tax, accounting, credit, or legal advice. We are not a financial adviser, broker-dealer, tax preparer, or law firm. Talk to a qualified professional about your specific situation.</p>
+<p>5.1 <strong>Budgeting tool only.</strong> Shear Budget is a tool to help you organize and plan your money, using spending plans called "<strong>Earmarks</strong>" and savings set-asides called "<strong>Stash</strong>." Any Earmarks, Stash, categories, reports, insights, projections, or suggestions in the Service are general information and are <strong>not</strong> financial, investment, tax, accounting, credit, or legal advice. We are not a financial adviser, broker-dealer, tax preparer, or law firm. Talk to a qualified professional about your specific situation.</p>
 
-<p>5.2 <strong>Not a bank.</strong> Eagle Butte Software is <strong>not a bank</strong>, credit union, money transmitter, or other financial institution that holds deposits. Shear Budget does not hold, move, transfer, or invest your money. Budget "envelopes" in the app are planning labels only; no money is moved or set aside at your bank when you use them.</p>
+<p>5.2 <strong>Not a bank.</strong> Eagle Butte Software is <strong>not a bank</strong>, credit union, money transmitter, or other financial institution that holds deposits. Shear Budget does not hold, move, transfer, or invest your money. Earmarks and Stash are planning labels inside the app only. Creating or funding an Earmark or adding to your Stash does <strong>not</strong> move, hold, or set aside any money at your bank or anywhere else, and a Stash is not a savings or deposit account.</p>
 
 <p>5.3 <strong>You make the decisions.</strong> You are solely responsible for your financial decisions, for checking your actual account balances with your bank, and for paying your bills on time. Do not rely on Shear Budget as your only record of your finances.</p>
 
@@ -137,17 +148,25 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>6.3 <strong>Teller's terms and privacy policy.</strong> Before you connect a Linked Account, you must review and accept Teller's <strong>End User Terms of Service</strong> at <a href="https://teller.io/legal/user/terms">https://teller.io/legal/user/terms</a> and Teller's <strong>End User Privacy Policy</strong> at <a href="https://teller.io/legal/user/privacy">https://teller.io/legal/user/privacy</a>. Teller's terms and privacy policy govern how Teller collects, uses, stores, and shares your information. By connecting a Linked Account, you confirm that you have read and agree to them. If you do not agree to them, do not connect a Linked Account.</p>
 
-<p>6.4 <strong>Your authorization.</strong> When you connect a Linked Account, you authorize Eagle Butte Software and Teller to access and retrieve your account information and financial data from your financial institution <strong>on your behalf</strong>, including account names and types, balances, and transaction history [, and account-holder identity information such as name — CONFIRM WHICH TELLER PRODUCTS ARE ENABLED], and to store and use that data to provide, maintain, and improve the Service as described in our Privacy Policy. Teller acts as your agent when it accesses your Linked Account, as described in Teller's End User Terms of Service. This authorization continues until you disconnect the Linked Account or delete your Shear Budget account.</p>
+<p>6.4 <strong>Your authorization.</strong> When you connect a Linked Account, you authorize Eagle Butte Software and Teller to access and retrieve your account information and financial data from your financial institution <strong>on your behalf</strong>, including account names and types, balances, and transaction history [, and account-holder identity information such as name — CONFIRM WHICH TELLER PRODUCTS ARE ENABLED], and to transmit that data to your device so it can be stored in your encrypted budget, as described in Sections 3.4 and 6.6 and our Privacy Policy. Teller acts as your agent when it accesses your Linked Account, as described in Teller's End User Terms of Service. This authorization continues until you disconnect the Linked Account or delete your Shear Budget account.</p>
 
 <p>6.5 <strong>Read-only. No money movement.</strong> Shear Budget uses bank connections for <strong>read-only</strong> access. Shear Budget does not, and is not designed to, initiate payments, transfers, or any other movement of money from your Linked Accounts.</p>
 
-<p>6.6 <strong>Your credentials go to Teller, not to us.</strong> When you connect a Linked Account, you enter your bank login credentials and any verification codes into Teller's connection interface. Teller handles those credentials. <strong>Eagle Butte Software does not receive or store your bank username or password.</strong> We receive and store an access token from Teller that lets us retrieve your data, plus the account and transaction data itself.</p>
+<p>6.6 <strong>Credentials, tokens, and where bank data goes.</strong></p>
+
+<p>(a) <strong>Your credentials go to Teller, not to us.</strong> When you connect a Linked Account, you enter your bank login credentials and any verification codes into Teller's connection interface. Teller handles those credentials. <strong>Eagle Butte Software does not receive or store your bank username or password.</strong></p>
+
+<p>(b) <strong>What our servers store.</strong> After you connect, Teller gives us an access token that lets us retrieve data from the Linked Account. Our servers store <strong>only</strong> (i) that access token, in encrypted form, and (ii) basic connection details: the connection status, the name of the financial institution, and the time of the last sync [and Teller account/enrollment identifiers — CONFIRM]. The access token is encrypted with keys that we control on our servers, not keys held only by you. That means it is not end-to-end encrypted. Our authorized personnel could technically decrypt it, and we limit that access to authorized personnel who need it to operate, secure, or support the Service.</p>
+
+<p>(c) <strong>Transactions pass through; they are not stored on our servers.</strong> When your bank data syncs, account and transaction data is retrieved from Teller and passes through our servers, encrypted in transit, on its way to your device. We do not store that data on our servers [and do not write it to our logs — CONFIRM]. Your device stores it locally and, if you are signed in, inside your end-to-end encrypted budget (Section 3.4).</p>
+
+<p>(d) <strong>Teller's copy.</strong> Teller keeps its own copy of your credentials and financial data under its own End User Terms of Service and End User Privacy Policy. We do not control Teller's copy.</p>
 
 <p>6.7 <strong>You must own or be authorized.</strong> You may connect only accounts that you own or are legally authorized to access. You confirm you have the right to give the authorizations in this Section.</p>
 
 <p>6.8 <strong>Accuracy and availability not guaranteed.</strong> Account and transaction data comes from your financial institution through Teller. We do not control it and <strong>do not guarantee that it is accurate, complete, or up to date.</strong> Data may be delayed, missing, duplicated, or wrong, and connections may break or stop working, for example if your bank changes its systems, requires you to log in again, or stops supporting the connection, or if Teller's service is unavailable. Always confirm important information directly with your financial institution. Neither we nor Teller are responsible for errors in the data your financial institution provides or for your inability to access a Linked Account, to the extent permitted by law.</p>
 
-<p>6.9 <strong>Disconnect anytime.</strong> You can disconnect a Linked Account at any time in <strong>[Settings &gt; Linked Accounts]</strong>. When you disconnect, we will stop retrieving new data from that account and [revoke our Teller access token — CONFIRM]. Data already imported stays in your budget unless you delete it or delete your account. You may also be able to revoke access through your financial institution. To have Teller delete data it holds, contact Teller as described in its End User Privacy Policy.</p>
+<p>6.9 <strong>Disconnect anytime.</strong> You can disconnect a Linked Account at any time in <strong>[Settings &gt; Linked Accounts]</strong>. When you disconnect, we will stop retrieving new data from that account, delete the stored access token and connection details from our servers, and [ask Teller to revoke the token / delete the enrollment — CONFIRM]. Transactions already imported stay in your budget on your device (and in your encrypted synced budget) unless you delete them or delete your account. You may also be able to revoke access through your financial institution. To have Teller delete data it holds, contact Teller as described in its End User Privacy Policy.</p>
 
 <p>6.10 <strong>Changes to providers.</strong> We may change or add bank-data providers, or stop offering bank connections, in the future. If a change would require you to agree to a new provider's terms, we will ask you before your data is accessed through that provider.</p>
 
@@ -155,26 +174,36 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>7.1 <strong>Privacy Policy.</strong> Our Privacy Policy at [PRIVACY POLICY URL] explains what information we collect, how we use and share it, how long we keep it, and your choices. Please read it.</p>
 
-<p>7.2 <strong>Your data is yours.</strong> You own the budget data, notes, and other content you put into the Service ("<strong>Your Data</strong>"), including financial data imported from Linked Accounts. You give us a limited license to host, store, copy, process, and display Your Data <strong>only</strong> as needed to provide, secure, support, and improve the Service for you, and as described in the Privacy Policy.</p>
+<p>7.2 <strong>Your data is yours.</strong> You own the budget data, notes, and other content you put into the Service ("<strong>Your Data</strong>"), including financial data imported from Linked Accounts. You give us a limited license to host, store, copy, transmit, and process Your Data, including the encrypted form of your synced budget, <strong>only</strong> as needed to provide, secure, and support the Service for you, and as described in the Privacy Policy. Because your synced budget is end-to-end encrypted, we store and transmit it without being able to read it.</p>
 
-<p>7.3 <strong>We do not sell your personal financial data.</strong> We do not sell your personal information or your financial data, and we do not share your financial data with third parties for their own marketing. We share data only with service providers that help us run the Service (for example, cloud hosting [such as Supabase — CONFIRM] and Teller), when you direct us to, or when required by law, as described in the Privacy Policy. [OPTIONAL — ADS: See Section 13 about advertising.]</p>
+<p>7.3 <strong>We do not sell your personal financial data.</strong> We do not sell your personal information or your financial data, and we do not share your financial data with third parties for their own marketing. We share data only with service providers that help us run the Service (for example, cloud hosting by [Supabase], which stores your encrypted budget and the encrypted Teller token, and Teller), when you direct us to, or when required by law, as described in the Privacy Policy. Because we cannot read your end-to-end encrypted budget, we could not provide its contents to anyone, including in response to legal process. We could provide only the encrypted data and the other information described in Section 3.4(c). [OPTIONAL — ADS: See Section 13 about advertising.]</p>
 
-<p>7.4 <strong>Security.</strong> We maintain an information security program with administrative, technical, and physical safeguards designed to protect customer information, consistent with the FTC Standards for Safeguarding Customer Information (the "Safeguards Rule," 16 C.F.R. Part 314) as it applies to us. These safeguards include [encryption of data in transit and at rest, access controls, and monitoring — CONFIRM WITH DEVELOPER]. However, <strong>no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</strong> You help protect your account by keeping your password and devices secure.</p>
+<p>7.4 <strong>Security.</strong> We maintain an information security program with administrative, technical, and physical safeguards designed to protect customer information, consistent with the FTC Standards for Safeguarding Customer Information (the "Safeguards Rule," 16 C.F.R. Part 314) as it applies to us. These safeguards include end-to-end encryption of synced budget data (Section 3.4), encryption of data in transit, encryption of stored Teller access tokens with server-held keys, access controls limiting who can reach production systems and keys to authorized personnel, and [monitoring and logging — CONFIRM WITH DEVELOPER]. However, <strong>no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</strong> You help protect your account by keeping your password and devices secure.</p>
 
 <p>7.5 <strong>Security incidents.</strong> If we learn of a security incident affecting your personal information, we will notify you and any regulators as required by applicable law.</p>
 
 <h2>8. Exporting your data and deleting your account</h2>
 
-<p>8.1 <strong>Export.</strong> You can export Your Data [in CSV format — CONFIRM] at any time from <strong>[Settings &gt; Export Data]</strong> [or by emailing legal@shearbudget.com].</p>
+<p>8.1 <strong>Export.</strong> You can export Your Data [in CSV format — CONFIRM] at any time from <strong>[Settings &gt; Export Data]</strong> in the app. The export is created on your device, which decrypts your budget locally. Because we cannot read your encrypted budget, <strong>we cannot create an export for you from our servers</strong>. If you need help, we can guide you through exporting from the app.</p>
 
 <p>8.2 <strong>Delete your account.</strong> You can delete your account and associated data at any time:</p>
 
 <ul>
-<li><strong>In the app:</strong> [Settings &gt; Account &gt; Delete Account]; or</li>
-<li><strong>On the web, without reinstalling the app:</strong> at [ACCOUNT DELETION URL, e.g., https://shearbudget.com/delete-account].</li>
+<li><strong>In the app:</strong> [Settings &gt; Account &gt; Delete Account]. In-app deletion takes effect <strong>immediately</strong>; or</li>
+<li><strong>On the web, without reinstalling the app:</strong> at [ACCOUNT DELETION URL, e.g., https://shearbudget.com/delete-account]. Web requests are processed [immediately after you sign in and confirm / within [X] days after we verify your request — CONFIRM].</li>
 </ul>
 
-<p>8.3 <strong>What deletion does.</strong> When you delete your account, we will disconnect your Linked Accounts, [revoke our Teller access tokens,] and delete your account and associated data from our active systems within [30] days. Residual copies in backups are deleted on our normal backup cycle, within [90] days. We may keep limited information when the law requires it or for legitimate purposes such as security, fraud prevention, resolving disputes, or keeping records of purchases, as described in our Privacy Policy. Deleting your Shear Budget account does not delete data Teller holds under its own policies; contact Teller for that.</p>
+<p>8.3 <strong>What deletion does.</strong></p>
+
+<p>(a) <strong>Immediate deletion.</strong> When you delete your account in the app, we immediately delete your account, your encrypted synced budget, your stored Teller access tokens, and your connection details from our database, and we [ask Teller to revoke the tokens / delete the enrollments — CONFIRM].</p>
+
+<p>(b) <strong>Backups.</strong> We do not currently keep separate backups of our database. Once your data is deleted, we cannot restore it. Our hosting provider may keep residual copies in its own systems or logs for a limited time under its own policies. If we start using database backups in the future, deleted data may remain in those backups until they expire, which will be no more than [7] days. We will update these Terms and the Privacy Policy before that change takes effect. Any data in backups or provider systems is your encrypted budget or the encrypted token, which we cannot use to read your budget.</p>
+
+<p>(c) <strong>Records we keep.</strong> We keep a record of your acceptance of these Terms, the Privacy Policy, and Teller's terms (for example, the version accepted, date and time, and platform) as evidence of consent. We also keep records of purchases, subscription cancellations, and arbitration opt-outs. We keep these records after your account is deleted for as long as needed for legal, compliance, and dispute-resolution purposes [, and no longer than [7] years after account deletion — OWNER/COUNSEL TO CONFIRM]. We may also keep limited information when the law requires it or for security and fraud prevention, as described in our Privacy Policy.</p>
+
+<p>(d) <strong>Data on your devices.</strong> Deleting your account removes data from our servers. Budget data stored locally on your devices [is removed when you delete the account from that device / remains until you uninstall the app or clear its data — CONFIRM]. Remove the app from your other devices to delete local copies there.</p>
+
+<p>(e) <strong>Teller's copy.</strong> Deleting your Shear Budget account does not delete data Teller holds under its own policies. Contact Teller (legal-notices@teller.io) to request that.</p>
 
 <p>8.4 <strong>Subscriptions are separate.</strong> Deleting your account <strong>does not automatically cancel</strong> a subscription bought through Google Play [or Apple]. Please cancel it in the store first (see Section 12). [IF WEB BILLING: Deleting your account will cancel any subscription you bought directly from us on our website.]</p>
 
@@ -250,13 +279,13 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>15.2 <strong>No guarantees.</strong> WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE; THAT ANY DATA WILL BE ACCURATE, COMPLETE, OR CURRENT; THAT SYNC WILL ALWAYS WORK; THAT ANY BANK CONNECTION WILL BE AVAILABLE OR CONTINUE TO WORK; OR THAT USING THE SERVICE WILL ACHIEVE ANY FINANCIAL RESULT.</p>
 
-<p>15.3 <strong>Back up what matters.</strong> We work to protect Your Data, but you are responsible for keeping your own records (for example, by using the export feature).</p>
+<p>15.3 <strong>Back up what matters.</strong> We do not currently keep backups of our database, and we cannot decrypt or recover your end-to-end encrypted budget. Local-only data exists only on your device. You are responsible for keeping your own records, for example by exporting regularly (Section 8.1).</p>
 
 <p>15.4 Some states do not allow the exclusion of certain warranties, so some of the above may not apply to you. In that case, these disclaimers apply to the fullest extent permitted by law.</p>
 
 <h2>16. Limitation of liability</h2>
 
-<p>16.1 <strong>Excluded damages.</strong> TO THE FULLEST EXTENT PERMITTED BY LAW, EAGLE BUTTE SOFTWARE, ITS PARENT EAGLE BUTTE LLC, AND THEIR AFFILIATES, OFFICERS, MEMBERS, MANAGERS, EMPLOYEES, CONTRACTORS, AND AGENTS WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, OR GOODWILL, OR FOR OVERDRAFT FEES, LATE FEES, MISSED PAYMENTS, OR FINANCIAL LOSSES RESULTING FROM DECISIONS YOU MAKE BASED ON THE SERVICE, ARISING OUT OF OR RELATING TO THE SERVICE OR THESE TERMS, WHETHER BASED ON CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR ANY OTHER THEORY, EVEN IF WE WERE TOLD THEY WERE POSSIBLE.</p>
+<p>16.1 <strong>Excluded damages.</strong> TO THE FULLEST EXTENT PERMITTED BY LAW, EAGLE BUTTE SOFTWARE, ITS PARENT EAGLE BUTTE LLC, AND THEIR AFFILIATES, OFFICERS, MEMBERS, MANAGERS, EMPLOYEES, CONTRACTORS, AND AGENTS WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, OR GOODWILL, OR FOR LOSS OF BUDGET DATA CAUSED BY A LOST PASSWORD, LOST ENCRYPTION KEYS, OR LOSS OF OR DAMAGE TO A DEVICE THAT HOLDS LOCAL-ONLY DATA, OR FOR OVERDRAFT FEES, LATE FEES, MISSED PAYMENTS, OR FINANCIAL LOSSES RESULTING FROM DECISIONS YOU MAKE BASED ON THE SERVICE, ARISING OUT OF OR RELATING TO THE SERVICE OR THESE TERMS, WHETHER BASED ON CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR ANY OTHER THEORY, EVEN IF WE WERE TOLD THEY WERE POSSIBLE.</p>
 
 <p>16.2 <strong>Cap.</strong> TO THE FULLEST EXTENT PERMITTED BY LAW, OUR TOTAL LIABILITY FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THE SERVICE OR THESE TERMS IS LIMITED TO THE <strong>GREATER OF (A) THE AMOUNT YOU PAID US FOR THE SERVICE IN THE 12 MONTHS BEFORE THE EVENT GIVING RISE TO THE CLAIM, OR (B) FIFTY U.S. DOLLARS (US $50).</strong></p>
 
@@ -272,7 +301,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>18.1 <strong>By you.</strong> You may stop using the Service at any time and may delete your account as described in Section 8. Remember to cancel any app-store Subscription separately.</p>
 
-<p>18.2 <strong>By us.</strong> We may suspend or end your access to the Service, with notice when reasonably possible, if you violate these Terms, if required by law, if Teller or a financial institution requires it, if your use creates a security or legal risk, or if we stop offering the Service. If we end the Service for everyone or terminate your account without cause, we will give you reasonable advance notice [of at least [30] days] when practical so you can export Your Data, and we will refund the unused, prepaid portion of any Subscription bought directly from us [or work with you on a refund for store purchases where possible].</p>
+<p>18.2 <strong>By us.</strong> We may suspend or end your access to the Service, with notice when reasonably possible, if you violate these Terms, if required by law, if Teller or a financial institution requires it, if your use creates a security or legal risk, or if we stop offering the Service. If we end the Service for everyone or terminate your account without cause, we will give you reasonable advance notice [of at least [30] days] when practical so you can export Your Data from the app, and we will refund the unused, prepaid portion of any Subscription bought directly from us [or work with you on a refund for store purchases where possible].</p>
 
 <p>18.3 <strong>Effect.</strong> When your account ends, your license ends and you must stop using the Service. Sections that by their nature should survive will survive, including Sections 4.2, 4.5, 5, 6.8, 7.3, 8.3, 15, 16, 17, 21, 22, and 25.</p>
 
@@ -379,7 +408,7 @@ Website: <a href="https://shearbudget.com">https://shearbudget.com</a></p>
 
 <hr>
 
-<p><em>Shear Budget Terms of Use and EULA — Version 1.0 — Effective [EFFECTIVE DATE]</em></p>
+<p><em>Shear Budget Terms of Use and EULA — Version 1.1-draft — Effective [EFFECTIVE DATE]</em></p>
     </section>
   </main>
 
