@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "shearbudget",
+  "name": "shearbudget-web",
   "compatibility_date": "2026-10-26",
   "main": "src/index.js",
   // Static assets only. The Worker redirects www (and shearbudget.app, if
