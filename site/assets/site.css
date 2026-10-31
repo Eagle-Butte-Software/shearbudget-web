@@ -250,6 +250,18 @@ h1 {
   font-size: 0.9rem;
 }
 
+.optional-step-num {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: goldenrod;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
 .showcase { margin-top: 28px; }
 
 .panels {
