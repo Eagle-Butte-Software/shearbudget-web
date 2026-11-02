@@ -2,7 +2,7 @@
 
 Static site for [shearbudget.com](https://shearbudget.com). Cloudflare Workers serves the built files. Eagle Butte’s company, software, and rental sites stay on Netlify.
 
-`npm run build` copies `site/` to `dist/`. Pages are `/`, `/account`, `/privacy`, and `/terms`.
+`npm run build` copies `site/` to `dist/`. Pages are `/`, `/account`, `/privacy`, `/terms`, and `/plaid-oauth`.
 
 This folder is the whole site. It has its own `package.json`, build, and Wrangler config, and it does not import anything from a parent repository. Copied as-is, it is the root of [shearbudget-web](https://github.com/Eagle-Butte-Software/shearbudget-web).
 
@@ -29,4 +29,10 @@ Leave the API token on Cloudflare’s generated token. A push to `main` builds a
 - 301 to `https://shearbudget.com` plus the same path
 - Preserve the query string
 
-The Worker also 301s those two hostnames if a request for them reaches it.
+The Worker also 301s those two hostnames if a request for them reaches it. Those redirects keep the path and the query string.
+
+## Plaid OAuth
+
+`/plaid-oauth` is the redirect URI the Shear Budget desktop and web app gives Plaid Link for OAuth banks. Plaid sends the browser back to `https://shearbudget.com/plaid-oauth?oauth_state_id=...`. The Worker serves `/plaid-oauth` and `/plaid-oauth/` as the page itself (HTTP 200) and does not redirect those paths, so the query string stays in the address bar for Link's `receivedRedirectUri`.
+
+Before OAuth banks will return here, add `https://shearbudget.com/plaid-oauth` to **Allowed redirect URIs** in the Plaid dashboard. The registered URI has no query string; Plaid adds `oauth_state_id` itself.
