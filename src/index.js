@@ -17,6 +17,20 @@ const ACCOUNT_CSP = [
   "base-uri 'self'",
 ].join("; ");
 
+export function redirectLocation(url) {
+  const host = url.hostname.toLowerCase();
+  if (!REDIRECT_HOSTS.has(host)) return null;
+  return new URL(url.pathname + url.search, APEX).toString();
+}
+
+// Plaid appends ?oauth_state_id= to the redirect URI. A 301/307 that drops
+// that query (trailing-slash HTML handling, or /index.html canonicalization)
+// breaks Link. Serve the document as 200 and leave the browser URL alone.
+export function isPlaidOAuthDocument(pathname) {
+  const path = pathname.replace(/\/+$/, "") || "/";
+  return path === "/plaid-oauth" || path === "/plaid-oauth/index.html";
+}
+
 function applySecurityHeaders(headers, isAccount = false) {
   headers.set("X-Content-Type-Options", "nosniff");
   headers.set("X-Frame-Options", "DENY");
@@ -27,13 +41,42 @@ function applySecurityHeaders(headers, isAccount = false) {
   }
 }
 
+async function servePlaidOAuth(request, env) {
+  const assetUrl = new URL(request.url);
+  assetUrl.pathname = "/plaid-oauth";
+  assetUrl.search = "";
+  assetUrl.hash = "";
+
+  let response = await env.ASSETS.fetch(new Request(assetUrl.toString(), { method: "GET" }));
+  for (let hop = 0; hop < 2 && response.status >= 300 && response.status < 400; hop++) {
+    const location = response.headers.get("Location");
+    if (!location) break;
+    const next = new URL(location, assetUrl);
+    next.search = "";
+    next.hash = "";
+    response = await env.ASSETS.fetch(new Request(next.toString(), { method: "GET" }));
+  }
+
+  const headers = new Headers(response.headers);
+  headers.delete("Location");
+  applySecurityHeaders(headers, false);
+  return new Response(response.body, {
+    status: response.ok ? 200 : response.status,
+    statusText: response.ok ? "OK" : response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const host = url.hostname.toLowerCase();
-    if (REDIRECT_HOSTS.has(host)) {
-      const target = new URL(url.pathname + url.search, APEX);
-      return Response.redirect(target.toString(), 301);
+    const redirectTo = redirectLocation(url);
+    if (redirectTo) {
+      return Response.redirect(redirectTo, 301);
+    }
+
+    if (isPlaidOAuthDocument(url.pathname)) {
+      return servePlaidOAuth(request, env);
     }
 
     const response = await env.ASSETS.fetch(request);
