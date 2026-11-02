@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terms of Use — Shear Budget</title>
-  <meta name="description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.4-draft, pending attorney review.">
+  <meta name="description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.5-draft, pending attorney review.">
   <link rel="canonical" href="https://shearbudget.com/terms">
   <meta property="og:title" content="Shear Budget terms of use">
-  <meta property="og:description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.4-draft, pending attorney review.">
+  <meta property="og:description" content="Draft Terms of Use and End User License Agreement for Shear Budget. Version 1.5-draft, pending attorney review.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shearbudget.com/terms">
   <meta name="theme-color" content="#2f7d5b">
@@ -33,7 +33,7 @@
   <main id="main">
     <section class="page-hero terms-hero">
       <div class="wrap">
-        <p class="status">Version 1.4-draft</p>
+        <p class="status">Version 1.5-draft</p>
         <!--
 DRAFT — NOT LEGAL ADVICE. This document is a working draft prepared for Eagle Butte Software LLC.
 It must be reviewed and approved by a licensed attorney (ideally one admitted in Colorado and familiar
@@ -48,7 +48,7 @@ Remove this comment block and the "Draft notice" below before publishing.
       </div>
     </section>
     <section class="prose wrap">
-      <p><strong>Version:</strong> 1.4-draft<br>
+      <p><strong>Version:</strong> 1.5-draft<br>
 <strong>Effective date:</strong> [EFFECTIVE DATE]<br>
 <strong>Last updated:</strong> [LAST UPDATED DATE]</p>
 
@@ -66,8 +66,8 @@ Remove this comment block and the "Draft notice" below before publishing.
 <li><strong>Plans (Section 9):</strong>
 <ul>
 <li><strong>Free:</strong> no ads, no account, no sync, and no bank connections. Your budget stays <strong>on your device only</strong>.</li>
-<li><strong>Sync:</strong> <strong>$9.99 one time per platform</strong> (Android for now). It adds a Shear Budget account and encrypted sync across your devices on that platform for Shear Budget version 1, including all 1.x updates. A future major version may be a separate paid upgrade. If you don't upgrade, your version keeps working and stays synced for at least 12 months after the new version comes out.</li>
-<li><strong>Shear Budget Plus:</strong> <strong>$5.99/month or $59/year</strong>. It adds an account, sync, and read-only bank linking for <strong>up to 5 bank connections</strong>, and it <strong>renews automatically until you cancel</strong>. You can cancel online at any time (Section 12).</li>
+<li><strong>Sync:</strong> <strong>$9.99 one time per platform</strong>, sold separately for each platform (currently Android and Windows; iPhone when an iPhone app is released). It adds a Shear Budget account and encrypted sync across up to <strong>5 devices</strong> on that platform for Shear Budget version 1, including all 1.x updates. A future major version may be a separate paid upgrade. If you don't upgrade, your version keeps working and stays synced for at least 12 months after the new version comes out.</li>
+<li><strong>Shear Budget Plus:</strong> <strong>$5.99/month or $59/year</strong>. It adds an account, sync on <strong>every platform</strong> (no separate Sync purchase needed) for up to <strong>5 devices</strong> in total, and read-only bank linking for <strong>up to 5 bank connections</strong>. It <strong>renews automatically until you cancel</strong>. You can cancel online at any time (Section 12).</li>
 </ul></li>
 <li><strong>Shear Budget has no ads</strong> in any plan.</li>
 <li>If you sync, your device <strong>encrypts your budget end to end</strong> with a key that stays on your devices, so our servers store only encrypted data that <strong>we cannot read</strong>.</li>
@@ -106,7 +106,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>(a) <strong>Free version and signed out (local-only).</strong> You can use all budgeting features of Shear Budget without an account or signing in. The free version does not include an account; an account and sync come with Sync or Shear Budget Plus (Section 9). Bank connections (Section 6) require Shear Budget Plus. When you are signed out, your budget data is stored only on your device and is not uploaded to our servers. If you lose, reset, or uninstall the app from that device, or clear its data, your local budget may be permanently lost unless you have exported it.</p>
 
-<p>(b) <strong>Signed in (end-to-end encrypted sync, with Sync or Plus).</strong> When you sign in, the app uses a randomly generated encryption key (your "<strong>budget key</strong>") to encrypt your budget data on your device before it leaves the device. Our cloud database, hosted by Supabase, stores only the encrypted version ("ciphertext"). Your budget key is <strong>not</strong> derived from your password. It is stored on each of your devices in that device's protected storage: the operating system's secure storage on Android and Windows, or the browser's local storage if you use Shear Budget in a web browser. <strong>We do not have your budget key, so we cannot read the contents of your budget</strong>, including your Earmarks, Stash, accounts, transactions, and notes. Your devices decrypt the data locally to show it to you and to sync it across the devices where you sign in. Browser storage is generally less protected than a phone's or computer's secure storage, so take extra care with shared computers.</p>
+<p>(b) <strong>Signed in (end-to-end encrypted sync, with Sync or Plus).</strong> When you sign in, the app uses a randomly generated encryption key (your "<strong>budget key</strong>") to encrypt your budget data on your device before it leaves the device. Our cloud database, hosted by Supabase, stores only the encrypted version ("ciphertext"). Your budget key is <strong>not</strong> derived from your password. It is stored on each of your devices in that device's protected storage: the operating system's secure storage on Android and Windows [IF A BROWSER VERSION IS OFFERED: , or the browser's local storage if you use Shear Budget in a web browser]. <strong>We do not have your budget key, so we cannot read the contents of your budget</strong>, including your Earmarks, Stash, accounts, transactions, and notes. Your devices decrypt the data locally to show it to you and to sync it across the devices where you sign in. [IF A BROWSER VERSION IS OFFERED: Browser storage is generally less protected than a phone's or computer's secure storage, so take extra care with shared computers.]</p>
 
 <p>(c) <strong>What our servers can see.</strong> End-to-end encryption protects the contents of your budget. To run the Service, our servers do store and can read the following:</p>
 
@@ -116,7 +116,9 @@ Remove this comment block and the "Draft notice" below before publishing.
 <li><strong>Bank-connection details:</strong> the information described in Section 6.6(b).</li>
 <li><strong>Terms acceptance records:</strong> which document you accepted (such as these Terms), its version, when you accepted, your platform, and your app version.</li>
 <li><strong>Logs:</strong> our own server functions log only limited, pre-approved technical information and do not log your transactions or access tokens. Our hosting provider also keeps its own platform request logs (which can include information such as IP addresses and request times) under its own policies, which we do not control. Plaid also keeps a short-term record of our requests to Plaid and its responses (Section 6.6(c)).</li>
-<li><strong>Purchase and subscription information:</strong> which platforms you have bought Sync for, and for which major version; whether you have Shear Budget Plus, with your plan (monthly or yearly), its status, and its renewal or end date; and the store's purchase or order identifiers (such as Google Play purchase tokens) [and, for web or desktop purchases, your [PAYMENT PROCESSOR] customer ID] that we use to verify purchases. We do not receive your full card number. The app store or payment processor handles payment. [CONFIRM FIELD LIST WITH DEVELOPER.]</li>
+<li><strong>Purchase and subscription information:</strong> for each purchase or subscription (an "entitlement"): what it is (Sync or Plus), the platform, the major version it covers, the store (Google Play or Microsoft Store), the store's product ID, purchase token, and order ID, its status, your plan (monthly or yearly, for Plus), when the current period ends, and when the record was created and updated. We use this to verify purchases with the store and to turn features on or off. <strong>We never receive your card number or other payment details</strong>; the store handles payment. [IF WEB CARD BILLING IS OFFERED: and your [PAYMENT PROCESSOR] customer ID.]</li>
+<li><strong>Your signed-in devices:</strong> a device ID that the app creates, the platform (such as Android or Windows), a device label (such as the device name), and when the device was last seen. We use this to apply the device limits in Section 9 and to let you remove old devices.</li>
+<li><strong>Purchase-screen and renewal records:</strong> when you accept the Plus automatic renewal terms, we record that acceptance along with the plan and price you were shown (Section 12.1). We also keep a log of the renewal reminders and price-change notices we send you (Sections 12.4 and 12.5).</li>
 </ul>
 
 <p>The Privacy Policy describes this information and how long we keep it.</p>
@@ -241,7 +243,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>(e) <strong>Plaid's copy.</strong> Deleting your Shear Budget account does not by itself delete data Plaid holds under its own End User Privacy Policy. Plaid's policy says that when an app removes your connection, Plaid's systems are designed to automatically delete your personal data, subject to certain exceptions described in that policy. To ask Plaid directly, use Plaid Portal (<a href="https://my.plaid.com">https://my.plaid.com</a>) or Plaid's privacy request options described in its End User Privacy Policy.</p>
 
-<p>8.4 <strong>Purchases and subscriptions.</strong> Deleting your account <strong>does not automatically cancel</strong> a Shear Budget Plus subscription bought through Google Play [or Apple]. Please cancel it in the store first (Section 12.2); the app will remind you before you delete. [OPTIONAL — WEB OR DESKTOP PURCHASES: Deleting your account will cancel any Plus subscription you bought directly from us.] Deleting your account does not refund a Sync purchase or the current Plus term. [CONFIRM WITH DEVELOPER: whether a Sync purchase can be restored through the store to a new account after deletion.]</p>
+<p>8.4 <strong>Purchases and subscriptions.</strong> Deleting your account <strong>does not automatically cancel</strong> a Shear Budget Plus subscription bought through Google Play or the Microsoft Store [or, in the future, Apple]. Please cancel it in the store first (Section 12.2); the app will remind you before you delete. Deleting your account does not refund a Sync purchase or the current Plus term. <strong>A Google Play purchase stays tied to the first Shear Budget account that verified it.</strong> Deleting that account does not free the purchase, so <strong>it cannot be restored to a new Shear Budget account</strong> afterward. If you later create a new account, you would need to buy Sync (or subscribe to Plus) again for it. [CONFIRM WITH DEVELOPER whether Microsoft Store purchases work the same way, and if so, say "store purchase" instead of "Google Play purchase."] [OPTIONAL — WEB CARD BILLING, NOT CURRENTLY OFFERED: Deleting your account will cancel any Plus subscription you bought directly from us.]</p>
 
 <h2>9. Plans, prices, and payment</h2>
 
@@ -261,7 +263,7 @@ Remove this comment block and the "Draft notice" below before publishing.
         <tr>
           <th scope="row">Price</th>
           <td>$0</td>
-          <td><strong>$9.99, one time, per platform</strong></td>
+          <td><strong>$9.99, one time, per platform</strong> (each platform sold separately)</td>
           <td><strong>$5.99 per month</strong> or <strong>$59 per year</strong>, renews automatically until you cancel</td>
         </tr>
         <tr>
@@ -285,8 +287,8 @@ Remove this comment block and the "Draft notice" below before publishing.
         <tr>
           <th scope="row">End-to-end encrypted sync across your devices</th>
           <td>No</td>
-          <td>Yes, on the platform you bought it for</td>
-          <td>Yes</td>
+          <td>Yes, on the platform you bought it for, up to <strong>5 devices</strong> on that platform</td>
+          <td>Yes, on <strong>every platform</strong>, up to <strong>5 devices</strong> in total</td>
         </tr>
         <tr>
           <th scope="row">Read-only bank linking through Plaid</th>
@@ -302,9 +304,9 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>9.3 <strong>Sync (one-time purchase).</strong></p>
 
-<p>(a) <strong>What you get.</strong> Sync is a one-time purchase of <strong>$9.99 for one platform</strong>. It is currently available on Android, and Shear Budget may offer it later on other platforms such as Windows or iOS. Sync unlocks a Shear Budget account and end-to-end encrypted sync across your devices on that platform (Section 3.4(b)) for <strong>Shear Budget version 1, including all 1.x updates</strong>. You can sync up to <strong>5 devices</strong> at a time on the platform where you bought Sync.</p>
+<p>(a) <strong>What you get.</strong> Sync is a one-time purchase of <strong>$9.99 for one platform</strong>. Sync is sold separately for each platform: currently Android and Windows; iPhone when an iPhone app is released. We do not promise that an iPhone app, or any other platform, will be released. Sync unlocks a Shear Budget account and end-to-end encrypted sync across your devices on that platform (Section 3.4(b)) for <strong>Shear Budget version 1, including all 1.x updates</strong>. You can sync up to <strong>5 devices</strong> at a time on the platform where you bought Sync.</p>
 
-<p>(b) <strong>Per platform.</strong> Each platform's app store sells and restores its own Sync purchase. For example, a Sync purchase on Google Play is restored on your other Android devices signed in to the same Google account, but it does not unlock sync on a different platform. [DECIDE: whether using Shear Budget in a web browser needs its own purchase or is included with any Sync purchase.] Sync does not renew and does not include bank linking. Bank linking requires Shear Budget Plus.</p>
+<p>(b) <strong>Per platform.</strong> Each platform's app store sells and restores its own Sync purchase. For example, a Sync purchase on Google Play is restored on your other Android devices signed in to the same Google account, and a Microsoft Store purchase is restored on your other Windows devices signed in to the same Microsoft account. A Sync purchase on one platform does not unlock sync on a different platform. <strong>Sync is not sold for a web browser.</strong> [IF A BROWSER VERSION IS OFFERED: Shear Budget in a web browser is available only with Shear Budget Plus. — CONFIRM WITH MARK] Sync does not renew and does not include bank linking. Bank linking requires Shear Budget Plus.</p>
 
 <p>(c) <strong>Major versions.</strong> We may release a new major version of Shear Budget (for example, version 2) and sell Sync for it as a separate, optional upgrade. If you don't upgrade:</p>
 
@@ -325,21 +327,23 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>(c) <strong>A feature plan, not a bank fee.</strong> The Plus price pays for Shear Budget's features. We do not charge any fee for access to data from any financial institution. The price is the same no matter which, or how many (up to the limit), financial institutions you connect. Bank connections depend on your financial institution and Plaid, so we cannot promise that any particular institution will be available (Section 6.8).</p>
 
-<p>(d) <strong>If Plus ends.</strong> If your Plus subscription ends, we disconnect your Linked Accounts (Section 6.9) and stop retrieving bank data. Transactions already imported stay in your budget. If you own Sync for that platform, sync continues under Section 9.3. If you don't, sync stops and your budget stays on your devices. [DECIDE: how long we keep your encrypted synced budget on our servers after Plus ends without a Sync purchase, e.g., [90] days, so you can resubscribe or buy Sync, and whether we delete it after that.] You can still export your data or delete your account at any time (Section 8).</p>
+<p>(d) <strong>If Plus ends.</strong> If your Plus subscription ends, the app disconnects your Linked Accounts by asking Plaid to remove each connection (Section 6.9), and we stop retrieving bank data. Transactions already imported stay in your budget. On any platform where you own Sync, sync continues under Section 9.3. On platforms where you don't, sync stops and your budget stays on your devices. Your account stays open, and <strong>the encrypted copy of your budget stays on our servers until you delete your account</strong> (Section 8.2), so you can resubscribe or buy Sync later and pick up where you left off. We still cannot read that copy (Section 3.4(b)). You can export your data or delete your account at any time (Section 8). [OPTIONAL — INACTIVE ACCOUNTS: If you don't sign in to your account for [24] months, we may delete it after giving you at least [30] days' notice by email. — OWNER DECISION]</p>
 
 <p>9.5 <strong>Where you pay.</strong></p>
 
-<p>(a) <strong>Google Play.</strong> Purchases in the Android app are processed by <strong>Google Play</strong> using Google Play's billing system and are subject to Google Play's terms and policies. Billing, payment methods, cancellation, and refunds for Google Play purchases are handled through Google Play.</p>
+<p>(a) <strong>Google Play (Android).</strong> Purchases in the Android app are processed by <strong>Google Play</strong> using Google Play's billing system and are subject to Google Play's terms and policies. Billing, payment methods, cancellation, and refunds for Google Play purchases are handled through Google Play.</p>
 
-<p>(b) <strong>[OPTIONAL — WEB OR DESKTOP PURCHASES:</strong> If we offer purchases on our website or in a desktop app, they are processed by <strong>[PAYMENT PROCESSOR, e.g., Stripe]</strong> on our behalf. We do not receive or store your full card number. Billing, cancellation, and refunds for these purchases are handled by us, as described in Sections 11 and 12.<strong>]</strong></p>
+<p>(b) <strong>Microsoft Store (Windows).</strong> Purchases in the Windows app are processed by the <strong>Microsoft Store</strong> under Microsoft's terms. Microsoft handles billing, payment methods, cancellation, and refunds for Microsoft Store purchases.</p>
 
-<p>(c) <strong>[FUTURE iOS:</strong> Purchases in the iOS app are processed by Apple under Apple's terms.<strong>]</strong></p>
+<p>(c) <strong>[OPTIONAL — WEB CARD BILLING, NOT CURRENTLY OFFERED:</strong> If we offer purchases on our website, they will be processed by <strong>[PAYMENT PROCESSOR, e.g., Stripe]</strong> on our behalf. We will not receive or store your full card number. Billing, cancellation, and refunds for these purchases will be handled by us, as described in Sections 11 and 12.<strong>]</strong></p>
+
+<p>(d) <strong>[FUTURE iPHONE:</strong> Purchases in an iPhone app, if one is released, will be processed by Apple under Apple's terms.<strong>]</strong></p>
 
 <p>9.6 <strong>Authorization to charge.</strong> When you make a purchase, you authorize the applicable store or payment processor to charge your payment method for the price shown, plus applicable taxes. For Plus, you also authorize recurring charges, as described in Section 12, until you cancel.</p>
 
-<p>9.7 <strong>Price changes.</strong> We may change prices for future purchases. A price change does not affect a Sync purchase you have already made. For Plus, we will give you clear notice of a price increase <strong>at least 7 days and no more than 30 days before it takes effect</strong>, along with how to cancel, and you can cancel before the new price applies (Section 12.5). Google Play may also ask you to accept a price increase before it applies to your subscription.</p>
+<p>9.7 <strong>Price changes.</strong> We may change prices for future purchases. A price change does not affect a Sync purchase you have already made. For Plus, we will give you clear notice of a price increase <strong>at least 7 days and no more than 30 days before it takes effect</strong>, along with how to cancel, and you can cancel before the new price applies (Section 12.5). Google Play may also ask you to accept a price increase before it applies to your subscription. In the Microsoft Store, a price increase turns off automatic renewal for an existing subscription, so you will need to renew it yourself at the new price if you want to keep Plus.</p>
 
-<p>9.8 <strong>Taxes.</strong> For Google Play purchases, Google calculates and collects applicable sales tax. [OPTIONAL — WEB OR DESKTOP PURCHASES: For purchases through [PAYMENT PROCESSOR], we or our processor will add applicable sales tax at checkout. — CONFIRM WITH ACCOUNTANT.]</p>
+<p>9.8 <strong>Taxes.</strong> For Google Play purchases, Google calculates and collects applicable sales tax. For Microsoft Store purchases, Microsoft calculates and collects applicable sales tax. [OPTIONAL — WEB CARD BILLING, NOT CURRENTLY OFFERED: For purchases through [PAYMENT PROCESSOR], we or our processor will add applicable sales tax at checkout. — CONFIRM WITH ACCOUNTANT.]</p>
 
 <h2>10. Free trials and promotions [OPTIONAL — NOT CURRENTLY OFFERED]</h2>
 
@@ -349,7 +353,9 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>11.1 <strong>Google Play purchases.</strong> Refunds for Sync and Plus purchased through Google Play are handled under Google Play's refund policies. You can request a refund through Google Play. Under Google Play's general policy, if you cancel Plus, you keep access until the end of the current billing period and are not refunded for that period, unless the law requires otherwise.</p>
 
-<p>11.2 <strong>[OPTIONAL — WEB OR DESKTOP PURCHASES]</strong> [Refunds for purchases made through [PAYMENT PROCESSOR] are handled as follows: Sync: [REFUND POLICY — e.g., full refund on request within [14] days of purchase]. Plus: [REFUND POLICY — e.g., full refund on request within [14] days of your first payment; after that, no refunds for partial billing periods, except where required by law].]</p>
+<p>11.1A <strong>Microsoft Store purchases.</strong> Refunds for Sync and Plus purchased through the Microsoft Store are handled by Microsoft under its refund policies. You can request a refund from Microsoft.</p>
+
+<p>11.2 <strong>[OPTIONAL — WEB CARD BILLING, NOT CURRENTLY OFFERED]</strong> [Refunds for purchases made through [PAYMENT PROCESSOR] are handled as follows: Sync: [REFUND POLICY — e.g., full refund on request within [14] days of purchase]. Plus: [REFUND POLICY — e.g., full refund on request within [14] days of your first payment; after that, no refunds for partial billing periods, except where required by law].]</p>
 
 <p>11.3 Nothing in these Terms limits any refund right you have under applicable law, or any refund promised in Section 9.3(d) or Section 18.2.</p>
 
@@ -359,17 +365,18 @@ Remove this comment block and the "Draft notice" below before publishing.
 <p><strong>AUTOMATIC RENEWAL TERMS FOR SHEAR BUDGET PLUS.</strong> IF YOU BUY PLUS, YOUR SUBSCRIPTION WILL <strong>AUTOMATICALLY RENEW</strong> AT THE END OF EACH TERM FOR ANOTHER TERM OF THE SAME LENGTH: <strong>MONTHLY AT $5.99 PER MONTH</strong>, OR <strong>YEARLY AT $59 PER YEAR</strong> (PLUS APPLICABLE TAX), OR AT A NEW PRICE WE NOTIFY YOU OF IN ADVANCE UNDER SECTION 12.5. YOUR PAYMENT METHOD WILL BE CHARGED AT THE START OF EACH RENEWAL TERM <strong>UNTIL YOU CANCEL.</strong> A RENEWAL TERM IS NEVER LONGER THAN ONE YEAR. THERE IS NO MINIMUM PURCHASE OBLIGATION. <strong>YOU CAN CANCEL AT ANY TIME, ONLINE,</strong> AS DESCRIBED IN SECTION 12.2. CANCELLATION TAKES EFFECT AT THE END OF YOUR CURRENT PAID TERM.</p>
 </blockquote>
 
-<p>12.1 <strong>Before you buy.</strong> Before you are charged, we will show you the automatic renewal terms above, the price, the billing frequency, the bank-connection limit, and how to cancel. They will appear clearly and conspicuously, directly next to the purchase button, with a statement that by purchasing you agree to an automatically renewing subscription. You must take an affirmative step, such as tapping a clearly labeled subscribe button, to agree. After you buy, we will send you an acknowledgment you can keep, by email or in the app, that includes these renewal terms, the cancellation policy, and how to cancel. Google Play also sends its own receipt.</p>
+<p>12.1 <strong>Before you buy.</strong> Before you are charged, we will show you the automatic renewal terms above, the price, the billing frequency, the bank-connection limit, and how to cancel. They will appear clearly and conspicuously, directly next to the purchase button, with a statement that by purchasing you agree to an automatically renewing subscription. You must take an affirmative step, such as tapping a clearly labeled subscribe button, to agree. After you buy, we will send you an acknowledgment you can keep, by email or in the app, that includes these renewal terms, the cancellation policy, and how to cancel. Google Play or the Microsoft Store also sends its own receipt.</p>
 
 <p>12.2 <strong>How to cancel.</strong> You can cancel at any time. Cancellation takes effect at the end of your current paid term.</p>
 
 <ul>
-<li><strong>Google Play:</strong> Open the Google Play Store app &gt; Profile &gt; <strong>Payments &amp; subscriptions</strong> &gt; <strong>Subscriptions</strong> &gt; Shear Budget &gt; <strong>Cancel</strong>, or visit <a href="https://play.google.com/store/account/subscriptions">https://play.google.com/store/account/subscriptions</a>. The app also links directly to this page from <strong>[Settings &gt; Subscription — CONFIRM MENU NAME]</strong>.</li>
-<li><strong>[OPTIONAL — WEB OR DESKTOP PURCHASES:</strong> Sign in at [ACCOUNT URL] or in the app and choose <strong>[Settings &gt; Subscription &gt; Cancel]</strong>. This is a one-step online cancellation. You will not have to call us or go through extra steps to cancel. If we show you an offer or information about the effects of canceling, a "Cancel" button will stay visible next to it. You can also cancel by emailing support@shearbudget.com from your account email address.<strong>]</strong></li>
-<li><strong>[FUTURE iOS:</strong> Settings &gt; [your name] &gt; Subscriptions &gt; Shear Budget &gt; Cancel Subscription.<strong>]</strong></li>
+<li><strong>Google Play:</strong> Open the Google Play Store app &gt; Profile &gt; <strong>Payments &amp; subscriptions</strong> &gt; <strong>Subscriptions</strong> &gt; Shear Budget &gt; <strong>Cancel</strong>, or visit <a href="https://play.google.com/store/account/subscriptions">https://play.google.com/store/account/subscriptions</a>. The app also links directly to this page from <strong>Settings &gt; Subscription</strong>.</li>
+<li><strong>Microsoft Store:</strong> Sign in at <a href="https://account.microsoft.com/services">https://account.microsoft.com/services</a> with the Microsoft account you used to subscribe, find Shear Budget Plus, and choose <strong>Manage</strong> &gt; <strong>Cancel subscription</strong>. The app also links to this page from <strong>Settings &gt; Subscription</strong>. [CONFIRM the in-app link and Microsoft's current menu labels.]</li>
+<li><strong>[OPTIONAL — WEB CARD BILLING, NOT CURRENTLY OFFERED:</strong> Sign in at [ACCOUNT URL] or in the app and choose <strong>[Settings &gt; Subscription &gt; Cancel]</strong>. This is a one-step online cancellation. You will not have to call us or go through extra steps to cancel. If we show you an offer or information about the effects of canceling, a "Cancel" button will stay visible next to it. You can also cancel by emailing support@shearbudget.com from your account email address.<strong>]</strong></li>
+<li><strong>[FUTURE iPHONE:</strong> Settings &gt; [your name] &gt; Subscriptions &gt; Shear Budget &gt; Cancel Subscription.<strong>]</strong></li>
 </ul>
 
-<p>12.3 <strong>After you cancel.</strong> You keep Plus until the end of the current paid term, and you will not be charged again. After that, Section 9.4(d) applies: your Linked Accounts are disconnected, and sync continues only if you own Sync for that platform.</p>
+<p>12.3 <strong>After you cancel.</strong> You keep Plus until the end of the current paid term, and you will not be charged again. After that, Section 9.4(d) applies: your Linked Accounts are disconnected, sync continues only on platforms where you own Sync, and your encrypted budget stays on our servers until you delete your account.</p>
 
 <p>12.4 <strong>Renewal reminders.</strong> We will email you a reminder at the address on your account. The reminder will say that your Plus subscription will renew unless you cancel, and it will include the price, how often you will be charged, and how to cancel (with a link to cancel):</p>
 
@@ -378,7 +385,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 <li><strong>Monthly plan:</strong> at least once a year, at least <strong>25 and no more than 40 days</strong> before the renewal that would continue your subscription past each 12 months in a row.</li>
 </ul>
 
-<p>[CONFIRM WITH COUNSEL whether Google Play's own notices are enough for Google Play subscribers; this draft commits us to send our own.]</p>
+<p>[CONFIRM WITH COUNSEL whether Google Play's or Microsoft's own notices are enough for store subscribers; this draft commits us to send our own.]</p>
 
 <p>12.5 <strong>Price and other material changes.</strong> If we raise the Plus price or make another material change to the Plus terms, we will notify you clearly before the change applies, by email or in the app. For a price change, this notice will come <strong>at least 7 days and no more than 30 days before the new price takes effect</strong>, and it will explain how to cancel. If you do not want the change, you can cancel before it applies.</p>
 
@@ -388,7 +395,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <h2>14. Third-party services and links</h2>
 
-<p>The Service relies on and may link to third-party services, including Plaid, your financial institution, Google Play, and Supabase (our cloud hosting and authentication provider). We do not control third-party services and are not responsible for them. Your use of a third-party service is governed by that third party's own terms and privacy policy.</p>
+<p>The Service relies on and may link to third-party services, including Plaid, your financial institution, Google Play, the Microsoft Store, and Supabase (our cloud hosting and authentication provider). We do not control third-party services and are not responsible for them. Your use of a third-party service is governed by that third party's own terms and privacy policy.</p>
 
 <h2>15. Disclaimers</h2>
 
@@ -434,7 +441,9 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>20.1 <strong>Google Play.</strong> If you downloaded the app from Google Play, you also agree to Google Play's Terms of Service. These Terms are between you and Eagle Butte Software only, not Google. Google is not responsible for the app or these Terms. To the extent these Terms conflict with Google Play's terms that are required to govern the app, the Google Play terms control on that point.</p>
 
-<p>20.2 <strong>Apple App Store [FUTURE iOS — INCLUDE WHEN AN iOS APP IS RELEASED].</strong> [If you downloaded the app from Apple's App Store, the following also applies:</p>
+<p>20.2 <strong>Microsoft Store.</strong> If you got the app or made a purchase through the Microsoft Store, your use of the Microsoft Store is also subject to Microsoft's terms, including the Microsoft Services Agreement and the Microsoft Store usage rules. These Terms are between you and Eagle Butte Software only, not Microsoft. Microsoft is not responsible for the app or these Terms. We, not Microsoft, license the app to you. Nothing in these Terms gives you fewer rights to download and use the app than Microsoft's usage rules for Store apps provide; if there is a conflict on that point, Microsoft's usage rules control. [CONFIRM WITH COUNSEL against the Microsoft Store App Developer Agreement §5(i) and the current Microsoft Usage Rules.]</p>
+
+<p>20.3 <strong>Apple App Store [FUTURE iPHONE — INCLUDE WHEN AN iPHONE APP IS RELEASED].</strong> [If you downloaded the app from Apple's App Store, the following also applies:</p>
 
 <p>(a) <strong>Acknowledgment.</strong> These Terms are between you and Eagle Butte Software only, and not Apple Inc. ("<strong>Apple</strong>"). Eagle Butte Software, not Apple, is solely responsible for the app and its content.</p>
 
@@ -506,7 +515,7 @@ Remove this comment block and the "Draft notice" below before publishing.
 
 <p>25.5 <strong>Force majeure.</strong> We are not responsible for delays or failures caused by events beyond our reasonable control, including outages at Plaid, your financial institution, our hosting providers, or internet or power providers.</p>
 
-<p>25.6 <strong>No third-party beneficiaries.</strong> Except as stated in Section 20.2(j), there are no third-party beneficiaries of these Terms.</p>
+<p>25.6 <strong>No third-party beneficiaries.</strong> Except as stated in Section 20.3(j), there are no third-party beneficiaries of these Terms.</p>
 
 <p>25.7 <strong>Relationship.</strong> Nothing in these Terms creates a partnership, joint venture, employment, or agency relationship between you and us.</p>
 
@@ -525,7 +534,7 @@ Email: <strong>support@shearbudget.com</strong></p>
 
 <hr>
 
-<p><em>Shear Budget Terms of Use and EULA — Version 1.4-draft — Effective [EFFECTIVE DATE]</em></p>
+<p><em>Shear Budget Terms of Use and EULA — Version 1.5-draft — Effective [EFFECTIVE DATE]</em></p>
     </section>
   </main>
 
