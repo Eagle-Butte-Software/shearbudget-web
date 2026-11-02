@@ -10,6 +10,8 @@
     "binding": "ASSETS",
     // /account and /privacy serve account/index.html and privacy/index.html
     // with no .html suffix. /account is 200; /account/ redirects to /account.
+    // /plaid-oauth is special-cased in src/index.js: both /plaid-oauth and
+    // /plaid-oauth/ are HTTP 200 so Plaid's oauth_state_id query is not dropped.
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page",
     "run_worker_first": true
