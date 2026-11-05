@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { isPlaidOAuthDocument, redirectLocation } from "../src/index.js";
+import { helpRedirectLocation, isPlaidOAuthDocument, redirectLocation } from "../src/index.js";
 
 test("www redirect keeps the Plaid OAuth query string", () => {
   const url = new URL("https://www.shearbudget.com/plaid-oauth?oauth_state_id=abc-123");
@@ -21,6 +21,25 @@ test("shearbudget.app redirect keeps path and query", () => {
 test("apex host is not redirected", () => {
   const url = new URL("https://shearbudget.com/plaid-oauth?oauth_state_id=abc-123");
   assert.equal(redirectLocation(url), null);
+});
+
+test("help and help.html redirect to guide preserving query", () => {
+  assert.equal(
+    helpRedirectLocation(new URL("https://shearbudget.com/help")),
+    "https://shearbudget.com/guide",
+  );
+  assert.equal(
+    helpRedirectLocation(new URL("https://shearbudget.com/help/")),
+    "https://shearbudget.com/guide",
+  );
+  assert.equal(
+    helpRedirectLocation(new URL("https://shearbudget.com/help.html?from=app")),
+    "https://shearbudget.com/guide?from=app",
+  );
+  assert.equal(
+    helpRedirectLocation(new URL("https://shearbudget.com/guide")),
+    null,
+  );
 });
 
 test("Plaid document paths include slash and index forms, not other files", () => {

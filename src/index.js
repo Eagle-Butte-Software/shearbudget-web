@@ -23,6 +23,14 @@ export function redirectLocation(url) {
   return new URL(url.pathname + url.search, APEX).toString();
 }
 
+export function helpRedirectLocation(url) {
+  const path = url.pathname.replace(/\/+$/, "") || "/";
+  if (path === "/help" || path === "/help.html") {
+    return new URL("/guide" + url.search, url.origin).toString();
+  }
+  return null;
+}
+
 // Plaid appends ?oauth_state_id= to the redirect URI. A 301/307 that drops
 // that query (trailing-slash HTML handling, or /index.html canonicalization)
 // breaks Link. Serve the document as 200 and leave the browser URL alone.
@@ -73,6 +81,11 @@ export default {
     const redirectTo = redirectLocation(url);
     if (redirectTo) {
       return Response.redirect(redirectTo, 301);
+    }
+
+    const helpRedirect = helpRedirectLocation(url);
+    if (helpRedirect) {
+      return Response.redirect(helpRedirect, 301);
     }
 
     if (isPlaidOAuthDocument(url.pathname)) {

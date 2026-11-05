@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shear Budget™ — Comprehensive User Guide &amp; Documentation</title>
+  <meta name="description" content="Comprehensive User Guide &amp; Documentation for Shear Budget. Learn how to track bills, plan earmarks, manage savings, and sync across devices.">
+  <link rel="canonical" href="https://shearbudget.com/guide">
+  <meta property="og:title" content="Shear Budget™ — User Guide &amp; Documentation">
+  <meta property="og:description" content="Comprehensive User Guide &amp; Documentation for Shear Budget. Learn how to track bills, plan earmarks, manage savings, and sync across devices.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://shearbudget.com/guide">
+  <meta property="og:image" content="https://shearbudget.com/og.png">
+  <meta name="theme-color" content="#2f7d5b">
+  <link rel="icon" href="/ShearLogoIcon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    :root {
+      /* Shear Budget Core Brand Theme (matching app color scheme) */
+      --bg: #f5f7fa;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f0f3f8;
+      --border: #dde2ea;
+      --border-focus: #2f7d5b;
+      --text: #1c2430;
+      --text-muted: #6b7686;
+      --text-subtle: #8b96a8;
+      --accent: #2f7d5b;
+      --accent-hover: #246347;
+      --accent-glow: rgba(47, 125, 91, 0.14);
+      --pos: #1f8a4c;
+      --pos-bg: rgba(31, 138, 76, 0.1);
+      --pos-border: rgba(31, 138, 76, 0.3);
+      --neg: #c0392b;
+      --neg-bg: rgba(192, 57, 43, 0.1);
+      --neg-border: rgba(192, 57, 43, 0.3);
+      --amber: #d0892b;
+      --amber-bg: rgba(208, 137, 43, 0.12);
+      --amber-border: rgba(208, 137, 43, 0.35);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14181f;
+        --bg-surface: #1d232d;
+        --bg-card: #1d232d;
+        --bg-card-hover: #262e3b;
+        --border: #2d3644;
+        --border-focus: #3fa37a;
+        --text: #e6ebf2;
+        --text-muted: #8b96a8;
+        --text-subtle: #637184;
+        --accent: #3fa37a;
+        --accent-hover: #4cc27f;
+        --accent-glow: rgba(63, 163, 122, 0.18);
+        --pos: #4cc27f;
+        --pos-bg: rgba(76, 194, 127, 0.12);
+        --pos-border: rgba(76, 194, 127, 0.35);
+        --neg: #ee6b5b;
+        --neg-bg: rgba(238, 107, 91, 0.12);
+        --neg-border: rgba(238, 107, 91, 0.35);
+        --amber: #f59e0b;
+        --amber-bg: rgba(245, 158, 11, 0.12);
+        --amber-border: rgba(245, 158, 11, 0.35);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Layout */
+    .sidebar {
+      width: 290px;
+      flex-shrink: 0;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 16px;
+      z-index: 10;
+    }
+
+    .main-content {
+      flex: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 48px 120px 48px;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar Components */
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex: none;
+    }
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .brand-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--accent-glow);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      margin-left: 4px;
+    }
+
+    .search-box {
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 12px 8px 32px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-glow);
+    }
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      color: var(--text-subtle);
+      pointer-events: none;
+    }
+
+    .nav-group {
+      margin-bottom: 20px;
+    }
+    .nav-heading {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--text-subtle);
+      margin-bottom: 8px;
+      padding-left: 8px;
+    }
+    .nav-list {
+      list-style: none;
+    }
+    .nav-item a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 6px 10px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.15s ease-in-out;
+    }
+    .nav-item a svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      color: var(--text-subtle);
+      transition: color 0.15s ease-in-out;
+    }
+    .nav-item a:hover svg,
+    .nav-item a.active svg {
+      color: var(--accent);
+    }
+    .nav-item a:hover {
+      color: var(--text);
+      background: var(--bg);
+    }
+    .nav-item a.active {
+      color: var(--accent);
+      background: var(--accent-glow);
+      font-weight: 600;
+    }
+
+    /* Content Typography */
+    h1 {
+      font-size: 2.35rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      line-height: 1.2;
+      color: var(--text);
+    }
+    h2 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+    }
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+    }
+    p {
+      margin-bottom: 16px;
+      color: var(--text-muted);
+    }
+    p strong {
+      color: var(--text);
+    }
+    ul, ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+      color: var(--text-muted);
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    li strong {
+      color: var(--text);
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.88em;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: var(--accent);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(47, 125, 91, 0.12), rgba(31, 138, 76, 0.08));
+      border: 1px solid rgba(47, 125, 91, 0.25);
+      border-radius: 10px;
+      padding: 26px;
+      margin-bottom: 36px;
+    }
+    .hero-banner p {
+      color: var(--text);
+      font-size: 1.05rem;
+      margin-bottom: 0;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-left: 4px solid;
+    }
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .callout-tip {
+      background: var(--pos-bg);
+      border-color: var(--pos);
+      color: var(--text);
+    }
+    .callout-tip .callout-title { color: var(--pos); }
+    .callout-warn {
+      background: var(--amber-bg);
+      border-color: var(--amber);
+      color: var(--text);
+    }
+    .callout-warn .callout-title { color: var(--amber); }
+    .callout-important {
+      background: var(--neg-bg);
+      border-color: var(--neg);
+      color: var(--text);
+    }
+    .callout-important .callout-title { color: var(--neg); }
+    .callout-info {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--text);
+    }
+    .callout-info .callout-title { color: var(--accent); }
+
+    /* Formula Cards */
+    .formula-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .formula-expression {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 600;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 6px;
+      color: var(--accent);
+      margin: 12px 0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    .formula-legend {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+    }
+    .legend-tag {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .legend-tag.plus { background: var(--pos-bg); color: var(--pos); border: 1px solid var(--pos-border); }
+    .legend-tag.minus { background: var(--neg-bg); color: var(--neg); border: 1px solid var(--neg-border); }
+    .legend-tag.neutral { background: var(--bg); color: var(--accent); border: 1px solid var(--border); }
+
+    /* Generic App Window Mockup Frame */
+    .ui-mockup-frame {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 24px 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+    .mockup-header {
+      background: var(--bg-surface);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .mockup-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mockup-app-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex: none;
+      display: inline-block;
+    }
+    .mockup-title {
+      font-size: 0.82rem;
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .mockup-header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mockup-badge {
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid var(--accent);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+    .mockup-body {
+      padding: 20px;
+      background: var(--bg);
+    }
+
+    /* Diagram Elements */
+    .dashboard-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .preview-hero {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .preview-hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .preview-hero-head {
+      font-size: 1.15rem;
+      font-weight: 750;
+      color: var(--text);
+    }
+    .preview-hero-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .preview-hero-cushion {
+      text-align: right;
+      padding: 10px 18px;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+    }
+    .preview-hero-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .preview-hero-val {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+
+    .preview-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 768px) {
+      .preview-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .preview-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      text-align: center;
+    }
+    .preview-card-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .preview-card-val {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .chart-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      position: relative;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .chart-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.76rem;
+    }
+    .chart-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .chart-legend-color {
+      width: 14px;
+      height: 4px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    /* Comparison Tables */
+    .doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.9rem;
+    }
+    .doc-table th {
+      background: var(--bg-surface);
+      color: var(--text);
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+    }
+    .doc-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .doc-table tr:hover {
+      background: var(--bg);
+    }
+
+    /* Eartag Callout Cards */
+    .eartag-explanation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    @media (max-width: 680px) {
+      .eartag-explanation-grid { grid-template-columns: 1fr; }
+    }
+    .eartag-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .eartag-card.yellow-border { border-top: 4px solid var(--amber); }
+    .eartag-card.red-border { border-top: 4px solid var(--neg); }
+    .eartag-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+
+    /* Mobile Navigation & Responsive Layout */
+    .mobile-nav-header {
+      display: none;
+    }
+
+    @media (max-width: 820px) {
+      body {
+        flex-direction: column;
+      }
+      .mobile-nav-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px;
+        background: var(--bg-surface);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .mobile-nav-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .mobile-nav-title {
+        font-weight: 700;
+        font-size: 0.98rem;
+        color: var(--text);
+      }
+      .mobile-toc-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--accent-glow);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .sidebar {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: calc(100vh - 50px);
+        height: calc(100dvh - 50px);
+        background: var(--bg-surface);
+        border-right: none;
+        padding: 16px 20px 80px 20px;
+        z-index: 99;
+        display: none;
+        overflow-y: auto;
+      }
+      .sidebar.is-open {
+        display: flex;
+      }
+      .main-content {
+        padding: 24px 16px 80px 16px;
+        max-width: 100%;
+      }
+      h1 { font-size: 1.7rem; }
+      h2 { font-size: 1.35rem; margin-top: 36px; }
+      .formula-expression { font-size: 0.9rem; }
+      .formula-legend { grid-template-columns: 1fr; }
+      .hero-banner { padding: 18px 16px; }
+      .preview-hero { flex-direction: column; align-items: stretch; }
+      .preview-hero-cushion { text-align: left; }
+      .doc-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    }
+
+    /* Phone Mockup Frame & Screen Styling (Phone View Screenshots) */
+    .phone-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin: 28px 0;
+      align-items: start;
+    }
+    .phone-mockup-frame {
+      background: #1e2530;
+      border: 3.5px solid #334155;
+      border-radius: 36px;
+      padding: 12px 10px 16px 10px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.1);
+      max-width: 320px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .phone-top-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 8px;
+    }
+    .phone-speaker {
+      width: 44px;
+      height: 4px;
+      background: #475569;
+      border-radius: 2px;
+    }
+    .phone-screen {
+      background: var(--bg);
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8rem;
+      min-height: 470px;
+      color: var(--text);
+    }
+    .phone-app-header {
+      background: var(--bg-surface);
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .phone-header-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .phone-logo-badge {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex: none;
+      display: inline-block;
+    }
+    .phone-header-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    .phone-screen-content {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      background: var(--bg);
+    }
+    .phone-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .phone-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-sizing: border-box;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+    .phone-btn-primary {
+      background: var(--accent);
+      color: #ffffff !important;
+      border: 1px solid var(--accent);
+    }
+    .phone-btn-secondary {
+      background: var(--bg-surface);
+      color: var(--text) !important;
+      border: 1px solid var(--border);
+    }
+    .phone-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 8px;
+    }
+    .phone-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .phone-input-fake {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 6px 8px;
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+    .phone-bottom-nav {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      padding: 6px 4px 8px 4px;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+    .phone-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      color: var(--text-muted);
+    }
+    .phone-nav-item.active {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .phone-home-indicator {
+      width: 80px;
+      height: 3px;
+      background: #475569;
+      border-radius: 2px;
+      margin: 8px auto 2px auto;
+    }
+    .phone-mockup-caption {
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    /* Print styles */
+    @media print {
+      .sidebar { display: none; }
+      .mobile-nav-header { display: none; }
+      .main-content { max-width: 100%; padding: 0; }
+      body { background: #fff; color: #000; }
+      .ui-mockup-frame { border: 1px solid #ccc; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Navigation Header (visible only on mobile) -->
+  <header class="mobile-nav-header">
+    <a href="/" class="mobile-nav-left" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;">
+      <img class="brand-logo" src="/ShearLogoIcon.svg" alt="Shear Budget logo" style="width:28px;height:28px;">
+      <span class="mobile-nav-title">Shear Budget Guide</span>
+    </a>
+    <button type="button" id="mobile-toc-btn" class="mobile-toc-btn" aria-expanded="false" aria-controls="guide-sidebar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <span id="mobile-toc-btn-label">Topics</span>
+    </button>
+  </header>
+
+  <!-- Navigation Sidebar -->
+  <aside id="guide-sidebar" class="sidebar">
+    <div class="brand-header">
+      <a href="/" title="Back to Shear Budget Homepage" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+        <img class="brand-logo" src="/ShearLogoIcon.svg" alt="Shear Budget logo">
+        <div>
+          <div class="brand-title">Shear Budget™ <span class="brand-badge">Guide</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="search-box">
+      <svg class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <input type="text" id="help-search" class="search-input" placeholder="Search guide..." onkeyup="filterGuide()">
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-heading">Getting Started</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#intro"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg> <span>Overview &amp; Philosophy</span></a></li>
+        <li class="nav-item"><a href="#local-first"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span>Local-First &amp; Security</span></a></li>
+        <li class="nav-item"><a href="#first-steps"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> <span>First-Time Setup</span></a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-heading">The Calculations</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#calc-available"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg> <span>Available (Fun Money)</span></a></li>
+        <li class="nav-item"><a href="#calc-final-paycheck"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> <span>The Final Paycheck Rule</span></a></li>
+        <li class="nav-item"><a href="#calc-pre-paycheck-dip"><svg viewBox="0 0 24 24" width="15" height="15" fill="#d0892b" stroke="#d0892b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z"/><circle cx="12" cy="6" r="1.5"/></svg> <span>Pre-Paycheck Dip Warning</span></a></li>
+        <li class="nav-item"><a href="#calc-stash-paddock"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.253 1.606v20.578M5.494 1.606v20.578m0-14.698 11.76 8.819m-14.7 0h17.639M2.554 7.486h17.639"/></svg> <span>Stash vs. Paddock</span></a></li>
+        <li class="nav-item"><a href="#calc-water-filling"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 4.5101433,6.5153372 C 3.3324374,7.4912003 2.0980988,8.8810594 1.5983377,9.7692254 0.83009059,11.131538 0.54749484,13.160291 0.91187171,14.707977 1.102081,15.515888 1.5104747,16.508719 1.9709407,17.24273 2.2699009,17.727108 3.7142393,19.585572 3.7417164,19.527736 3.7491586,19.51571 3.5910789,19.193358 3.3974897,18.807453 2.3081309,16.711314 1.8331863,14.73763 2.0448323,13.105697 c 0.263128,-2.02417 0.8018246,-2.921503 2.8823965,-4.8187956 1.8028961,-1.636724 3.4672955,-2.727171 5.5777742,-3.6247112 1.110205,-0.477121 3.553974,-1.0935594 4.624722,-1.1710016 1.294061,-0.088923 4.062021,0.060732 4.183434,0.2273419 v 0 0 0 0 0 0 0 0 0 0 0 0 0 c -0.04638,0.021192 -0.26969,0.032674 -0.529078,0.021829 C 17.164764,3.6695707 13.914195,4.2191216 12.509115,4.7964862 10.560096,5.594373 9.32857,6.6034539 8.2236767,8.2813129 7.6861144,9.0961913 6.9156217,10.798055 6.6431887,11.735435 6.3416462,13.378259 5.6821962,14.766325 4.7616331,16.092584 4.2538396,16.85936 4.2092095,17.106156 4.5631009,17.30022 c 0.1780916,0.101899 0.2221776,0.07097 1.2103797,-0.706174 1.2922207,-1.013097 1.5521302,-1.392764 2.0002709,-2.936548 0.8653783,-2.957012 1.4389481,-4.2734913 2.3400665,-5.4205247 1.700905,-2.1572025 4.690835,-3.5083567 8.767671,-3.9956035 0.36932,-0.045857 0.913849,-0.1329635 1.205865,-0.2017138 0.467226,-0.1100006 0.530213,-0.1042829 0.518777,0.02169 -0.0011,0.082454 -0.02857,0.4895754 -0.04626,0.8944047 -0.02911,0.705445 -0.254552,1.92969 -0.422273,2.3081997 -0.06525,0.1591909 -0.145418,0.1677905 -1.58206,0.2183688 -1.392557,0.019652 -2.570922,0.3381724 -3.893548,0.9166714 -0.653779,0.9757938 -0.406798,2.4175642 -0.25262,3.5524332 l 0.129515,0.811928 c 0.266356,0.738616 0.343682,0.936152 -0.09829,1.502511 -1.282487,1.010805 -2.296464,1.722106 -4.396098,2.360258 -1.7755575,0.531033 -2.2244498,0.718904 -2.8880313,1.173062 -1.0334455,0.715885 -1.7593542,1.821668 -1.8977817,2.891872 0.4382777,1.817942 0.9997297,-0.204549 1.7606038,-1.030909 0.7849482,-0.636833 1.517257,-0.973617 2.8410632,-1.285286 0.938468,-0.159306 2.032631,-0.704564 2.701953,-1.047066 1.37302,-0.538996 2.423642,-1.269198 3.367144,-2.323476 0.287977,-0.304088 0.152837,-0.354459 0.08581,-0.595514 -0.235001,-1.783613 -1.433701,-3.689634 -0.08426,-4.983312 0.385906,-0.1935891 4.031616,-0.3738663 5.01932,-0.5858581 0.605792,-0.1323502 0.82672,-0.8521355 0.976988,-3.3120378 0.068,-1.0638967 0.01744,-2.3258967 -0.110844,-2.5217084 C 21.76893,2.9348918 21.542736,2.803224 21.306241,2.7150751 20.845277,2.5462194 19.319259,2.2171768 18.651025,2.1279397 16.665768,1.6810025 14.373702,2.0254367 12.352483,2.4293854 9.4706678,2.9743068 6.7756818,4.7491449 4.4666245,6.5050362 Z"/></svg> <span>Water-Filling Earmark Math</span></a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-heading">Understanding the Charts</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#chart-projection"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg> <span>30-Day Projection Chart</span></a></li>
+        <li class="nav-item"><a href="#chart-eartags"><svg viewBox="0 0 24 24" width="15" height="15" fill="#c0392b" stroke="#c0392b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z"/><circle cx="12" cy="6" r="1.5"/></svg> <span>Ear Tags &amp; Stash Dips</span></a></li>
+        <li class="nav-item"><a href="#chart-bill-sliding"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h5"/></svg> <span>Bill Sliding on the Chart</span></a></li>
+        <li class="nav-item"><a href="#chart-donuts"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 4.5101433,6.5153372 C 3.3324374,7.4912003 2.0980988,8.8810594 1.5983377,9.7692254 0.83009059,11.131538 0.54749484,13.160291 0.91187171,14.707977 1.102081,15.515888 1.5104747,16.508719 1.9709407,17.24273 2.2699009,17.727108 3.7142393,19.585572 3.7417164,19.527736 3.7491586,19.51571 3.5910789,19.193358 3.3974897,18.807453 2.3081309,16.711314 1.8331863,14.73763 2.0448323,13.105697 c 0.263128,-2.02417 0.8018246,-2.921503 2.8823965,-4.8187956 1.8028961,-1.636724 3.4672955,-2.727171 5.5777742,-3.6247112 1.110205,-0.477121 3.553974,-1.0935594 4.624722,-1.1710016 1.294061,-0.088923 4.062021,0.060732 4.183434,0.2273419 v 0 0 0 0 0 0 0 0 0 0 0 0 0 c -0.04638,0.021192 -0.26969,0.032674 -0.529078,0.021829 C 17.164764,3.6695707 13.914195,4.2191216 12.509115,4.7964862 10.560096,5.594373 9.32857,6.6034539 8.2236767,8.2813129 7.6861144,9.0961913 6.9156217,10.798055 6.6431887,11.735435 6.3416462,13.378259 5.6821962,14.766325 4.7616331,16.092584 4.2538396,16.85936 4.2092095,17.106156 4.5631009,17.30022 c 0.1780916,0.101899 0.2221776,0.07097 1.2103797,-0.706174 1.2922207,-1.013097 1.5521302,-1.392764 2.0002709,-2.936548 0.8653783,-2.957012 1.4389481,-4.2734913 2.3400665,-5.4205247 1.700905,-2.1572025 4.690835,-3.5083567 8.767671,-3.9956035 0.36932,-0.045857 0.913849,-0.1329635 1.205865,-0.2017138 0.467226,-0.1100006 0.530213,-0.1042829 0.518777,0.02169 -0.0011,0.082454 -0.02857,0.4895754 -0.04626,0.8944047 -0.02911,0.705445 -0.254552,1.92969 -0.422273,2.3081997 -0.06525,0.1591909 -0.145418,0.1677905 -1.58206,0.2183688 -1.392557,0.019652 -2.570922,0.3381724 -3.893548,0.9166714 -0.653779,0.9757938 -0.406798,2.4175642 -0.25262,3.5524332 l 0.129515,0.811928 c 0.266356,0.738616 0.343682,0.936152 -0.09829,1.502511 -1.282487,1.010805 -2.296464,1.722106 -4.396098,2.360258 -1.7755575,0.531033 -2.2244498,0.718904 -2.8880313,1.173062 -1.0334455,0.715885 -1.7593542,1.821668 -1.8977817,2.891872 0.4382777,1.817942 0.9997297,-0.204549 1.7606038,-1.030909 0.7849482,-0.636833 1.517257,-0.973617 2.8410632,-1.285286 0.938468,-0.159306 2.032631,-0.704564 2.701953,-1.047066 1.37302,-0.538996 2.423642,-1.269198 3.367144,-2.323476 0.287977,-0.304088 0.152837,-0.354459 0.08581,-0.595514 -0.235001,-1.783613 -1.433701,-3.689634 -0.08426,-4.983312 0.385906,-0.1935891 4.031616,-0.3738663 5.01932,-0.5858581 0.605792,-0.1323502 0.82672,-0.8521355 0.976988,-3.3120378 0.068,-1.0638967 0.01744,-2.3258967 -0.110844,-2.5217084 C 21.76893,2.9348918 21.542736,2.803224 21.306241,2.7150751 20.845277,2.5462194 19.319259,2.2171768 18.651025,2.1279397 16.665768,1.6810025 14.373702,2.0254367 12.352483,2.4293854 9.4706678,2.9743068 6.7756818,4.7491449 4.4666245,6.5050362 Z"/></svg> <span>Other Spending &amp; Earmarks</span></a></li>
+        <li class="nav-item"><a href="#chart-trends"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg> <span>Account Balance Trends</span></a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-heading">Step-by-Step Guides</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#guide-banks"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Bank Accounts &amp; Statement Import</span></a></li>
+        <li class="nav-item"><a href="#guide-transactions"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M4 6h.01M4 12h.01M4 18h.01"/></svg> <span>Transactions &amp; Bulk Actions</span></a></li>
+        <li class="nav-item"><a href="#guide-earmarks"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 4.5101433,6.5153372 C 3.3324374,7.4912003 2.0980988,8.8810594 1.5983377,9.7692254 0.83009059,11.131538 0.54749484,13.160291 0.91187171,14.707977 1.102081,15.515888 1.5104747,16.508719 1.9709407,17.24273 2.2699009,17.727108 3.7142393,19.585572 3.7417164,19.527736 3.7491586,19.51571 3.5910789,19.193358 3.3974897,18.807453 2.3081309,16.711314 1.8331863,14.73763 2.0448323,13.105697 c 0.263128,-2.02417 0.8018246,-2.921503 2.8823965,-4.8187956 1.8028961,-1.636724 3.4672955,-2.727171 5.5777742,-3.6247112 1.110205,-0.477121 3.553974,-1.0935594 4.624722,-1.1710016 1.294061,-0.088923 4.062021,0.060732 4.183434,0.2273419 v 0 0 0 0 0 0 0 0 0 0 0 0 0 c -0.04638,0.021192 -0.26969,0.032674 -0.529078,0.021829 C 17.164764,3.6695707 13.914195,4.2191216 12.509115,4.7964862 10.560096,5.594373 9.32857,6.6034539 8.2236767,8.2813129 7.6861144,9.0961913 6.9156217,10.798055 6.6431887,11.735435 6.3416462,13.378259 5.6821962,14.766325 4.7616331,16.092584 4.2538396,16.85936 4.2092095,17.106156 4.5631009,17.30022 c 0.1780916,0.101899 0.2221776,0.07097 1.2103797,-0.706174 1.2922207,-1.013097 1.5521302,-1.392764 2.0002709,-2.936548 0.8653783,-2.957012 1.4389481,-4.2734913 2.3400665,-5.4205247 1.700905,-2.1572025 4.690835,-3.5083567 8.767671,-3.9956035 0.36932,-0.045857 0.913849,-0.1329635 1.205865,-0.2017138 0.467226,-0.1100006 0.530213,-0.1042829 0.518777,0.02169 -0.0011,0.082454 -0.02857,0.4895754 -0.04626,0.8944047 -0.02911,0.705445 -0.254552,1.92969 -0.422273,2.3081997 -0.06525,0.1591909 -0.145418,0.1677905 -1.58206,0.2183688 -1.392557,0.019652 -2.570922,0.3381724 -3.893548,0.9166714 -0.653779,0.9757938 -0.406798,2.4175642 -0.25262,3.5524332 l 0.129515,0.811928 c 0.266356,0.738616 0.343682,0.936152 -0.09829,1.502511 -1.282487,1.010805 -2.296464,1.722106 -4.396098,2.360258 -1.7755575,0.531033 -2.2244498,0.718904 -2.8880313,1.173062 -1.0334455,0.715885 -1.7593542,1.821668 -1.8977817,2.891872 0.4382777,1.817942 0.9997297,-0.204549 1.7606038,-1.030909 0.7849482,-0.636833 1.517257,-0.973617 2.8410632,-1.285286 0.938468,-0.159306 2.032631,-0.704564 2.701953,-1.047066 1.37302,-0.538996 2.423642,-1.269198 3.367144,-2.323476 0.287977,-0.304088 0.152837,-0.354459 0.08581,-0.595514 -0.235001,-1.783613 -1.433701,-3.689634 -0.08426,-4.983312 0.385906,-0.1935891 4.031616,-0.3738663 5.01932,-0.5858581 0.605792,-0.1323502 0.82672,-0.8521355 0.976988,-3.3120378 0.068,-1.0638967 0.01744,-2.3258967 -0.110844,-2.5217084 C 21.76893,2.9348918 21.542736,2.803224 21.306241,2.7150751 20.845277,2.5462194 19.319259,2.2171768 18.651025,2.1279397 16.665768,1.6810025 14.373702,2.0254367 12.352483,2.4293854 9.4706678,2.9743068 6.7756818,4.7491449 4.4666245,6.5050362 Z"/></svg> <span>Earmarks (Envelopes)</span></a></li>
+        <li class="nav-item"><a href="#guide-bills"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h5"/></svg> <span>Bills &amp; Recurring Payments</span></a></li>
+        <li class="nav-item"><a href="#guide-rules"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg> <span>Categories &amp; Auto-Rules</span></a></li>
+        <li class="nav-item"><a href="#guide-backup"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> <span>Backup, Export &amp; Danger Zone</span></a></li>
+        <li class="nav-item"><a href="#guide-tiers"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> <span>Plans &amp; Tier Limits</span></a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-heading">Shear Budget Online</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="/"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> <span>Overview</span></a></li>
+        <li class="nav-item"><a href="/account"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span>Manage Account</span></a></li>
+        <li class="nav-item"><a href="/privacy"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> <span>Privacy Policy</span></a></li>
+        <li class="nav-item"><a href="/terms"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h5"/></svg> <span>Terms of Service</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+
+    <section id="intro">
+      <h1>Shear Budget™ User Guide &amp; Reference</h1>
+      <div class="hero-banner">
+        <p><strong>Proactive cash-flow clarity without surprises.</strong> Shear Budget answers one definitive question every single day: <em>"Can I cover this right now without risking an unpaid bill or dipping into savings?"</em></p>
+      </div>
+<p>Originally a livestock term for cutting unique marks into an animal's ear to prove ownership, earmarking evolved into setting aside specific funds for a dedicated purpose. In this app, an earmark reserves portions of your balance for designated goals or upcoming expenses, keeping that money protected from everyday spending.  </p>
+      <p>Most budgeting apps report past expenses after you have already spent your money. Shear Budget is designed from the ground up for <strong>forward cash flow</strong>: it tracks your real bank balances, rings fences around your upcoming bills and earmarks, and calculates exactly how much safe "Fun Money" you can spend today without bouncing checks or eating into your rainy day stash.</p>
+    </section>
+
+    <!-- SECTION: LOCAL-FIRST & SECURITY -->
+    <section id="local-first">
+      <h2>Local-First Architecture &amp; Security</h2>
+      <p>Shear Budget is engineered from the ground up as a <strong>local-first financial tool</strong>. Unlike conventional cloud budgeting applications that centralize your most sensitive bank balances, transaction histories, and personal spending habits on third-party servers, Shear Budget prioritizes absolute privacy, offline autonomy, and cryptographic user ownership.</p>
+
+      <h3>1. Your Device Is the Single Source of Truth</h3>
+      <p>All of your accounts, transactions, earmarks, bills, and category rules are stored in a local encrypted database directly on your computer or phone (IndexedDB / SQLite). This brings immense benefits:</p>
+      <ul>
+        <li><strong>Full Offline Capability:</strong> You can review your budget, check your Available cushion, record cash expenses, fund earmarks, and adjust bills anywhere — even with no internet connection, in airplane mode, or during carrier outages.</li>
+        <li><strong>Instantaneous Speed:</strong> Because your balance calculations and projections run entirely on-device, screens open immediately with zero loading spinners or network latency.</li>
+        <li><strong>No Silent Data Mining:</strong> Your financial data is never collected, scanned, or sold to advertising brokers. If you use the Free tier, not a single transaction ever leaves your device.</li>
+      </ul>
+
+      <h3>2. Zero-Knowledge End-to-End Encryption (E2EE)</h3>
+      <p>When you synchronize between multiple devices (such as your desktop and mobile phone), your data remains completely confidential:</p>
+      <ul>
+        <li><strong>Client-Side Encryption:</strong> Data is encrypted directly on your device using industry-standard <strong>AES-GCM (256-bit)</strong> cryptography with a dedicated, cryptographically generated encryption key before leaving your device.</li>
+        <li><strong>Zero-Knowledge Server:</strong> The sync server only stores opaque, encrypted binary blobs. Shear Budget engineers, server administrators, and potential cloud intruders cannot decrypt, inspect, or reconstruct your financial records.</li>
+      </ul>
+
+      <h3>3. Your Encryption Key &amp; Recovery Key Code</h3>
+      <p>Your encryption key is <strong>not tied to your account password</strong>—it is an independent cryptographic key that belongs exclusively to your budget. This distinction is vital:</p>
+      <div class="callout callout-important">
+        <div class="callout-title">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--neg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px;" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Encryption Key Security Warning
+        </div>
+        <p><strong>Account passwords can be reset, but encryption keys cannot.</strong> If you forget your Shear Budget account password, you can reset it via email. However, because Shear Budget never has access to your encryption key, <strong>nobody can reset, recover, or bypass a lost encryption key</strong>.</p>
+        <p>When setting up a budget or multi-device sync, save your generated <strong>Recovery Key Code</strong> in a secure password manager or physical vault. To open or restore your encrypted budget on a new phone or computer, you will enter this key code. Without your Recovery Key Code, your encrypted financial data cannot be recovered by anyone.</p>
+      </div>
+
+      <h3>4. Bank Feeds &amp; Plaid Privacy</h3>
+      <p>When using bank connectivity on the Plus tier:</p>
+      <ul>
+        <li><strong>Read-Only Tokenization:</strong> Shear Budget uses Plaid's official bank-grade APIs solely in read-only mode to retrieve transaction entries and posted balances. Shear Budget can never move money, initiate transfers, or make withdrawals.</li>
+        <li><strong>No Stored Credentials:</strong> Your online banking username and password are exchanged securely through Plaid's direct institutional authentication flow and are never transmitted to, viewed by, or saved on Shear Budget's devices or servers.</li>
+        <li><strong>Disconnect at Any Time:</strong> You can revoke bank connections instantly in Settings &gt; Bank Connections or switch back to file import whenever you prefer.</li>
+      </ul>
+
+      <h3>5. Total Data Ownership &amp; Portability</h3>
+      <p>You are never locked in. Under <strong>Settings &gt; Data Management</strong>, you can download a full unencrypted JSON backup of your entire budget history or export your transactions to CSV at any time. If you ever choose to leave, the <em>Danger Zone</em> provides a one-click irreversible wipe that purges all local tables, caches, and sync credentials from your device.</p>
+    </section>
+
+    <!-- SECTION: FIRST-TIME SETUP -->
+    <section id="first-steps">
+      <h2>First-Time Setup Guide</h2>
+      <p>Setting up Shear Budget takes less than five minutes. The app guides you through establishing your real bank balances, scheduling your expected income, listing your recurring monthly expenses, setting up your earmarks, and corralling your stash so you immediately see your safe daily spending cushion.</p>
+
+      <div class="phone-showcase-grid">
+        <!-- Phone Mockup 1: Empty State / Onboarding Screen -->
+        <div class="phone-mockup-frame">
+          <div class="phone-top-bar"><div class="phone-speaker"></div></div>
+          <div class="phone-screen">
+            <div class="phone-app-header">
+              <div class="phone-header-brand">
+                <img class="phone-logo-badge" src="/ShearLogoIcon.svg" alt="Shear Budget logo">
+                <span class="phone-header-title">Shear Budget</span>
+              </div>
+              <span style="font-size: 0.72rem; color: var(--accent); font-weight: 600;">v0.2.6</span>
+            </div>
+            <div class="phone-screen-content">
+              <div class="phone-card" style="text-align: center; padding: 14px 10px; background: linear-gradient(135deg, rgba(47, 125, 91, 0.1), rgba(31, 138, 76, 0.05)); border-color: rgba(47, 125, 91, 0.3);">
+                <div style="font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 4px;">Welcome to Shear Budget</div>
+                <div style="font-size: 0.74rem; color: var(--text-muted); line-height: 1.35;">Forward cash flow clarity. Choose how you'd like to begin:</div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <button type="button" class="phone-btn phone-btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Guided setup walkthrough</span>
+                </button>
+                <button type="button" class="phone-btn phone-btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--text-muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Add Account (manually)</span>
+                </button>
+                <button type="button" class="phone-btn phone-btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Import CSV / OFX / QFX</span>
+                </button>
+                <button type="button" class="phone-btn phone-btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Restore backup</span>
+                </button>
+                <button type="button" class="phone-btn phone-btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                  <span>Sign in to account</span>
+                </button>
+              </div>
+
+              <div class="phone-card" style="margin-top: auto; font-size: 0.7rem; color: var(--text-muted); text-align: center; border-style: dashed; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Local-first privacy:</strong> Your budget stays on this device.</span>
+              </div>
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+          <div class="phone-mockup-caption">Figure 1: Initial onboarding screen on phone view</div>
+        </div>
+
+        <!-- Phone Mockup 2: Add Account Screen -->
+        <div class="phone-mockup-frame">
+          <div class="phone-top-bar"><div class="phone-speaker"></div></div>
+          <div class="phone-screen">
+            <div class="phone-app-header">
+              <div style="font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 4px;">
+                <span style="color: var(--accent); cursor: pointer; display: inline-flex; align-items: center;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg);" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></span>
+                <span>Add Account</span>
+              </div>
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent);">Save</span>
+            </div>
+            <div class="phone-screen-content">
+              <div class="phone-card">
+                <div class="phone-form-group">
+                  <label class="phone-label">Account Name</label>
+                  <div class="phone-input-fake">Primary Checking</div>
+                </div>
+                <div class="phone-form-group">
+                  <label class="phone-label">Account Type</label>
+                  <div class="phone-input-fake" style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Checking</span>
+                    <span style="font-size: 0.65rem; background: var(--pos-bg); color: var(--pos); padding: 1px 5px; border-radius: 4px; font-weight: 700; display: inline-flex; align-items: center; gap: 3px;">
+                      <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="var(--pos)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> In Cushion
+                    </span>
+                  </div>
+                </div>
+                <div class="phone-form-group">
+                  <label class="phone-label">Current Posted Balance</label>
+                  <div class="phone-input-fake" style="font-weight: 700; color: var(--accent); font-size: 0.95rem;">$3,450.00</div>
+                </div>
+                <div class="phone-form-group" style="margin-bottom: 0;">
+                  <label class="phone-label">Include in Cushion?</label>
+                  <div style="display: flex; align-items: center; gap: 6px; font-size: 0.74rem; color: var(--text);">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 13px; height: 13px; background: var(--accent); border-radius: 3px;">
+                      <svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                    </span>
+                    <span>Yes, count in Available funds</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="callout callout-tip" style="padding: 8px 10px; margin: 2px 0; font-size: 0.71rem;">
+                <strong style="color: var(--pos);">Checking rule:</strong> Checking counts toward Available cushion. Savings and credit cards start ignored.
+              </div>
+
+              <button type="button" class="phone-btn phone-btn-primary" style="margin-top: auto;">Save Account</button>
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+          <div class="phone-mockup-caption">Figure 2: Adding primary checking account on phone view</div>
+        </div>
+
+        <!-- Phone Mockup 3: Populated Dashboard Screen -->
+        <div class="phone-mockup-frame">
+          <div class="phone-top-bar"><div class="phone-speaker"></div></div>
+          <div class="phone-screen">
+            <div class="phone-app-header">
+              <div class="phone-header-brand">
+                <img class="phone-logo-badge" src="/ShearLogoIcon.svg" alt="Shear Budget logo">
+                <span class="phone-header-title">Shear Budget</span>
+              </div>
+              <div style="display: flex; gap: 8px; align-items: center; font-size: 0.85rem;">
+                <span style="color: var(--accent); display: inline-flex; align-items: center;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg></span>
+              </div>
+            </div>
+            <div class="phone-screen-content">
+              <!-- Available Hero Card -->
+              <div class="phone-card" style="background: linear-gradient(135deg, rgba(47, 125, 91, 0.15), rgba(31, 138, 76, 0.08)); border-color: var(--accent);">
+                <div style="font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Available to Spend</div>
+                <div style="font-size: 1.55rem; font-weight: 800; color: var(--accent); margin: 2px 0;">$1,280.00</div>
+                <div style="font-size: 0.7rem; color: var(--text-muted);">Safe Fun Money cushion today</div>
+              </div>
+
+              <!-- Breakdown list -->
+              <div class="phone-card" style="display: flex; flex-direction: column; gap: 6px; font-size: 0.74rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: var(--text-muted); display: inline-flex; align-items: center; gap: 5px;">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg> Primary Checking
+                  </span>
+                  <strong style="color: var(--text);">$3,450.00</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: var(--text-muted); display: inline-flex; align-items: center; gap: 5px;">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.253 1.606v20.578M5.494 1.606v20.578m0-14.698 11.76 8.819m-14.7 0h17.639M2.554 7.486h17.639"/></svg> Stash (Rainy Day)
+                  </span>
+                  <strong style="color: var(--neg);">-$500.00</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: var(--text-muted); display: inline-flex; align-items: center; gap: 5px;">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--neg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h5"/></svg> Unpaid Bills (2)
+                  </span>
+                  <strong style="color: var(--neg);">-$1,270.00</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: var(--text-muted); display: inline-flex; align-items: center; gap: 5px;">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 4.5101433,6.5153372 C 3.3324374,7.4912003 2.0980988,8.8810594 1.5983377,9.7692254 0.83009059,11.131538 0.54749484,13.160291 0.91187171,14.707977 1.102081,15.515888 1.5104747,16.508719 1.9709407,17.24273 2.2699009,17.727108 3.7142393,19.585572 3.7417164,19.527736 3.7491586,19.51571 3.5910789,19.193358 3.3974897,18.807453 2.3081309,16.711314 1.8331863,14.73763 2.0448323,13.105697 c 0.263128,-2.02417 0.8018246,-2.921503 2.8823965,-4.8187956 1.8028961,-1.636724 3.4672955,-2.727171 5.5777742,-3.6247112 1.110205,-0.477121 3.553974,-1.0935594 4.624722,-1.1710016 1.294061,-0.088923 4.062021,0.060732 4.183434,0.2273419 v 0 0 0 0 0 0 0 0 0 0 0 0 0 c -0.04638,0.021192 -0.26969,0.032674 -0.529078,0.021829 C 17.164764,3.6695707 13.914195,4.2191216 12.509115,4.7964862 10.560096,5.594373 9.32857,6.6034539 8.2236767,8.2813129 7.6861144,9.0961913 6.9156217,10.798055 6.6431887,11.735435 6.3416462,13.378259 5.6821962,14.766325 4.7616331,16.092584 4.2538396,16.85936 4.2092095,17.106156 4.5631009,17.30022 c 0.1780916,0.101899 0.2221776,0.07097 1.2103797,-0.706174 1.2922207,-1.013097 1.5521302,-1.392764 2.0002709,-2.936548 0.8653783,-2.957012 1.4389481,-4.2734913 2.3400665,-5.4205247 1.700905,-2.1572025 4.690835,-3.5083567 8.767671,-3.9956035 0.36932,-0.045857 0.913849,-0.1329635 1.205865,-0.2017138 0.467226,-0.1100006 0.530213,-0.1042829 0.518777,0.02169 -0.0011,0.082454 -0.02857,0.4895754 -0.04626,0.8944047 -0.02911,0.705445 -0.254552,1.92969 -0.422273,2.3081997 -0.06525,0.1591909 -0.145418,0.1677905 -1.58206,0.2183688 -1.392557,0.019652 -2.570922,0.3381724 -3.893548,0.9166714 -0.653779,0.9757938 -0.406798,2.4175642 -0.25262,3.5524332 l 0.129515,0.811928 c 0.266356,0.738616 0.343682,0.936152 -0.09829,1.502511 -1.282487,1.010805 -2.296464,1.722106 -4.396098,2.360258 -1.7755575,0.531033 -2.2244498,0.718904 -2.8880313,1.173062 -1.0334455,0.715885 -1.7593542,1.821668 -1.8977817,2.891872 0.4382777,1.817942 0.9997297,-0.204549 1.7606038,-1.030909 0.7849482,-0.636833 1.517257,-0.973617 2.8410632,-1.285286 0.938468,-0.159306 2.032631,-0.704564 2.701953,-1.047066 1.37302,-0.538996 2.423642,-1.269198 3.367144,-2.323476 0.287977,-0.304088 0.152837,-0.354459 0.08581,-0.595514 -0.235001,-1.783613 -1.433701,-3.689634 -0.08426,-4.983312 0.385906,-0.1935891 4.031616,-0.3738663 5.01932,-0.5858581 0.605792,-0.1323502 0.82672,-0.8521355 0.976988,-3.3120378 0.068,-1.0638967 0.01744,-2.3258967 -0.110844,-2.5217084 C 21.76893,2.9348918 21.542736,2.803224 21.306241,2.7150751 20.845277,2.5462194 19.319259,2.2171768 18.651025,2.1279397 16.665768,1.6810025 14.373702,2.0254367 12.352483,2.4293854 9.4706678,2.9743068 6.7756818,4.7491449 4.4666245,6.5050362 Z"/></svg> Earmarks (2)
+                  </span>
+                  <strong style="color: var(--neg);">-$400.00</strong>
+                </div>
+              </div>
+
+              <!-- 30-Day Cash Flow Mini Preview -->
+              <div class="phone-card" style="padding: 8px 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <span style="font-size: 0.7rem; font-weight: 700; color: var(--text);">30-Day Projection</span>
+                  <span style="font-size: 0.65rem; background: var(--pos-bg); color: var(--pos); padding: 1px 5px; border-radius: 4px; font-weight: 600; display: inline-flex; align-items: center; gap: 3px;">
+                    <svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="var(--pos)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Cushion Safe
+                  </span>
+                </div>
+                <svg width="100%" height="28" viewBox="0 0 220 28" fill="none">
+                  <line x1="0" y1="24" x2="220" y2="24" stroke="#cbd5e1" stroke-dasharray="3 3" stroke-width="1"/>
+                  <path d="M 0 10 Q 55 18 90 20 T 140 8 T 220 12" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="90" cy="20" r="3" fill="var(--accent)"/>
+                  <circle cx="140" cy="8" r="3" fill="var(--pos)"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Phone Bottom Nav (Exact tabbar icons from app) -->
+            <div class="phone-bottom-nav">
+              <div class="phone-nav-item active">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>
+                <span>Dashboard</span>
+              </div>
+              <div class="phone-nav-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M4 6h.01M4 12h.01M4 18h.01"/></svg>
+                <span>Trans</span>
+              </div>
+              <div class="phone-nav-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h5"/></svg>
+                <span>Bills</span>
+              </div>
+              <div class="phone-nav-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <span>Income</span>
+              </div>
+              <div class="phone-nav-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 4.5101433,6.5153372 C 3.3324374,7.4912003 2.0980988,8.8810594 1.5983377,9.7692254 0.83009059,11.131538 0.54749484,13.160291 0.91187171,14.707977 1.102081,15.515888 1.5104747,16.508719 1.9709407,17.24273 2.2699009,17.727108 3.7142393,19.585572 3.7417164,19.527736 3.7491586,19.51571 3.5910789,19.193358 3.3974897,18.807453 2.3081309,16.711314 1.8331863,14.73763 2.0448323,13.105697 c 0.263128,-2.02417 0.8018246,-2.921503 2.8823965,-4.8187956 1.8028961,-1.636724 3.4672955,-2.727171 5.5777742,-3.6247112 1.110205,-0.477121 3.553974,-1.0935594 4.624722,-1.1710016 1.294061,-0.088923 4.062021,0.060732 4.183434,0.2273419 v 0 0 0 0 0 0 0 0 0 0 0 0 0 c -0.04638,0.021192 -0.26969,0.032674 -0.529078,0.021829 C 17.164764,3.6695707 13.914195,4.2191216 12.509115,4.7964862 10.560096,5.594373 9.32857,6.6034539 8.2236767,8.2813129 7.6861144,9.0961913 6.9156217,10.798055 6.6431887,11.735435 6.3416462,13.378259 5.6821962,14.766325 4.7616331,16.092584 4.2538396,16.85936 4.2092095,17.106156 4.5631009,17.30022 c 0.1780916,0.101899 0.2221776,0.07097 1.2103797,-0.706174 1.2922207,-1.013097 1.5521302,-1.392764 2.0002709,-2.936548 0.8653783,-2.957012 1.4389481,-4.2734913 2.3400665,-5.4205247 1.700905,-2.1572025 4.690835,-3.5083567 8.767671,-3.9956035 0.36932,-0.045857 0.913849,-0.1329635 1.205865,-0.2017138 0.467226,-0.1100006 0.530213,-0.1042829 0.518777,0.02169 -0.0011,0.082454 -0.02857,0.4895754 -0.04626,0.8944047 -0.02911,0.705445 -0.254552,1.92969 -0.422273,2.3081997 -0.06525,0.1591909 -0.145418,0.1677905 -1.58206,0.2183688 -1.392557,0.019652 -2.570922,0.3381724 -3.893548,0.9166714 -0.653779,0.9757938 -0.406798,2.4175642 -0.25262,3.5524332 l 0.129515,0.811928 c 0.266356,0.738616 0.343682,0.936152 -0.09829,1.502511 -1.282487,1.010805 -2.296464,1.722106 -4.396098,2.360258 -1.7755575,0.531033 -2.2244498,0.718904 -2.8880313,1.173062 -1.0334455,0.715885 -1.7593542,1.821668 -1.8977817,2.891872 0.4382777,1.817942 0.9997297,-0.204549 1.7606038,-1.030909 0.7849482,-0.636833 1.517257,-0.973617 2.8410632,-1.285286 0.938468,-0.159306 2.032631,-0.704564 2.701953,-1.047066 1.37302,-0.538996 2.423642,-1.269198 3.367144,-2.323476 0.287977,-0.304088 0.152837,-0.354459 0.08581,-0.595514 -0.235001,-1.783613 -1.433701,-3.689634 -0.08426,-4.983312 0.385906,-0.1935891 4.031616,-0.3738663 5.01932,-0.5858581 0.605792,-0.1323502 0.82672,-0.8521355 0.976988,-3.3120378 0.068,-1.0638967 0.01744,-2.3258967 -0.110844,-2.5217084 C 21.76893,2.9348918 21.542736,2.803224 21.306241,2.7150751 20.845277,2.5462194 19.319259,2.2171768 18.651025,2.1279397 16.665768,1.6810025 14.373702,2.0254367 12.352483,2.4293854 9.4706678,2.9743068 6.7756818,4.7491449 4.4666245,6.5050362 Z"/></svg>
+                <span>Earmarks</span>
+              </div>
+              <div class="phone-nav-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Settings</span>
+              </div>
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+          <div class="phone-mockup-caption">Figure 3: Populated mobile dashboard with Available cushion</div>
+        </div>
+      </div>
+
+      <h3>Step-by-Step Walkthrough</h3>
+      <ol>
+        <li>
+          <strong>Step 1: Name Your Budget &amp; Generate Your Encryption Key</strong><br>
+          Before configuring accounts or seeing the dashboard, Shear Budget initializes your private, encrypted local vault:
+          <ol style="margin: 6px 0 10px 20px; padding: 0;">
+            <li><strong>Enter a Budget Name:</strong> Choose a name for your budget file (e.g. <code>Personal Budget</code> or <code>Household</code>).</li>
+            <li><strong>Generate Zero-Knowledge Encryption Key:</strong> Click <em>Create new budget &amp; generate key</em> (or sign in with your email, password, and existing recovery code if opening a cloud budget).</li>
+            <li><strong>Safeguard Your Recovery Key Code:</strong> Shear Budget generates a secure zero-knowledge AES-GCM encryption key stored directly on your device and displays your unique Recovery Key Code. Copy and store this recovery key in your password manager or physical vault, check <em>"I saved this recovery code somewhere safe"</em>, and click <em>Continue</em>.</li>
+          </ol>
+          <div class="callout callout-warning" style="margin-top: 6px;">
+            <div class="callout-title">Zero-Knowledge Key Notice</div>
+            Your encryption key is stored only on your client device and is never sent to any server. Shear Budget account passwords can be reset via email, but <strong>encryption keys cannot be reset or recovered by anyone</strong>. Always record your Recovery Key Code.
+          </div>
+        </li>
+        <li>
+          <strong>Step 2: Choose Your Starting Option (Figure 1)</strong><br>
+          Once your budget name and encryption key are established, you will see the welcome screen on your empty dashboard offering guided and direct pathways:
+          <ul>
+            <li><em>Guided setup walkthrough:</em> <strong>(Recommended)</strong> The app guides you step-by-step through establishing your real bank balances (with the option to import directly from your bank or enter by hand), scheduling your expected income, listing your recurring monthly expenses, setting up your earmarks, and corralling your stash so you immediately see your safe daily spending cushion (can be skipped at any time).</li>
+            <li><em>Add Account (manually):</em> Enter your current checking account name and balance by hand. Perfect for complete offline privacy without connecting external services.</li>
+            <li><em>Import CSV / OFX / QFX:</em> Download a recent statement file from your online bank and upload it. Shear Budget automatically reads the ending balance and creates the account for you.</li>
+            <li><em>Restore backup:</em> Restore your budget and transaction history directly from a previously exported <code>.json</code> backup file.</li>
+            <li><em>Sign in to account:</em> Sign in with your Shear Budget email and password to sync with the cloud and connect bank accounts (available with Shear Budget Plus).</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Step 3: Add Your Primary Checking Account (Figure 2)</strong><br>
+          Give your account a recognizable name (e.g. <code>Primary Checking</code>) and enter the current posted balance from your bank app, or click <strong>Import from bank</strong> on Step 1 of the guided walkthrough to automatically populate your balance from a downloaded CSV, OFX, or QFX statement file.
+          <div class="callout callout-info" style="margin-top: 8px;">
+            <div class="callout-title">The Cushion Rule</div>
+            By default, <strong>only checking accounts</strong> are included in your Available spending cushion. Savings accounts, IRAs, investment portfolios, and credit card liabilities are automatically ignored from your primary cash pool so they do not artificially inflate the money you think you can spend today.
+          </div>
+        </li>
+        <li>
+          <strong>Step 4: Schedule Your Expected Income</strong><br>
+          Add your employer paycheck dates and expected net deposits. Whether you are paid weekly, bi-weekly, semi-monthly, or once a month, Shear Budget projects your balance curve ahead and applies the <em>Final Paycheck Rule</em> to guarantee you don't overspend before your next deposit clears.
+        </li>
+        <li>
+          <strong>Step 5: Enter Your Recurring Monthly Bills</strong><br>
+          Add your fixed upcoming commitments for the current month: Rent/Mortgage, Utilities, Car Payment, Insurance, and Streaming Subscriptions. Set each bill's due date and amount. Shear Budget immediately fences off this exact sum from your Available cushion.
+        </li>
+        <li>
+          <strong>Step 6: Set Up Your Earmarks (Spending Envelopes)</strong><br>
+          Create <strong>Earmarks</strong> for variable essentials like Groceries, Dining Out, and Vehicle Maintenance. Shear Budget automatically water-fills these earmarks with your remaining cash so everyday envelopes are funded before fun money is spent.
+        </li>
+        <li>
+          <strong>Step 7: Corral Your Stash (Optional)</strong><br>
+          Corral an emergency buffer in <strong>Stash</strong> (money physically in checking that you refuse to touch). Corralling your stash is optional; it removes your buffer from your daily spending cushion so you never accidentally graze on it.
+        </li>
+        <li>
+          <strong>Step 8: Monitor Your Daily Available Cushion (Figure 3)</strong><br>
+          Your dashboard is now fully active! Every morning, glance at <strong>Available to Spend</strong>. As long as this figure remains positive and the 30-day chart stays safely above your Stash line, your bills, savings, and future paychecks are completely protected.
+        </li>
+      </ol>
+    </section>
+
+    <!-- SECTION: THE CALCULATIONS -->
+    <section id="calc-available">
+      <h2>The Calculations Explained</h2>
+      <p>Every number you see in Shear Budget is computed using deterministic cash-flow arithmetic. Here is the exact mathematical foundation behind your dashboard.</p>
+
+      <h3>1. Available to Spend ("Fun Money" / Cushion)</h3>
+      <p>This is the primary headline metric on your Dashboard. It represents the money that is truly safe to spend right now.</p>
+
+      <div class="formula-card">
+        <div class="formula-expression">Available = Adjusted Bank Balance − Stash − Unpaid Bills − Remaining Earmarks + Expected Deposits + Included Paychecks</div>
+        <div class="formula-legend">
+          <div class="legend-item"><span class="legend-tag plus">+</span> <div><strong>Adjusted Bank Balance:</strong> Posted checking balance + pending items + transactions dated after your balance record.</div></div>
+          <div class="legend-item"><span class="legend-tag minus">−</span> <div><strong>Stash:</strong> Money physically inside your account reserved for emergency or goals (not spent, but held out of Available).</div></div>
+          <div class="legend-item"><span class="legend-tag minus">−</span> <div><strong>Unpaid Bills:</strong> Outstanding bills due in the current month that have not yet cleared.</div></div>
+          <div class="legend-item"><span class="legend-tag minus">−</span> <div><strong>Remaining Earmarks:</strong> Budgeted envelope spending allocated for the month minus what you have spent so far.</div></div>
+          <div class="legend-item"><span class="legend-tag plus">+</span> <div><strong>Expected Deposits:</strong> Verified one-off income expected to arrive before the month ends.</div></div>
+          <div class="legend-item"><span class="legend-tag plus">+</span> <div><strong>Included Paychecks:</strong> Future paychecks in the month, <em>excluding the month's final paycheck</em>.</div></div>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px;" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg> Why Credit Cards &amp; Savings are excluded from the Available balance</div>
+        <p>By default, only checking accounts are flagged as <code>include: true</code>. Your credit cards represent debt (not liquid funds), and your savings account holds separate funds. Only the accounts you select in <strong>Settings &gt; Bank Accounts</strong> contribute to your liquid Available funds.</p>
+      </div>
+    </section>
+
+    <section id="calc-final-paycheck">
+      <h3>2. The Final Paycheck Rule (Crucial Concept)</h3>
+      <p>A common pitfall in budgeting software is inflating your end-of-month funds with your final paycheck, leaving you broke when the 1st of the next month arrives with rent and mortgage.</p>
+
+      <div class="callout callout-important">
+        <div class="callout-title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px;" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Why is the last paycheck of the month excluded from the current month's Available total?</div>
+        <p><strong>The last paycheck of any month is designated to fund the next month!</strong></p>
+        <p>If you get paid on October 30th, that paycheck is not extra pocket money for October 31st. You need that money to pay rent, utilities, and groceries on November 1st before your mid-November paycheck arrives. Shear Budget automatically transfers this paycheck into the <strong>projected opening balance of next month</strong>, preventing artificial end-of-month spending sprees.</p>
+      </div>
+    </section>
+
+    <section id="calc-pre-paycheck-dip">
+      <h3>3. Pre-Paycheck Dip Warning</h3>
+      <p>You may occasionally see a warning banner at the top of your dashboard:</p>
+      <div class="callout callout-warn">
+        <div class="callout-title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px;" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Next month drops below $0 before paycheck on [Date] (-$180.00 dip)</div>
+        <p><strong>What it means:</strong> Shear Budget simulates your cash flow day-by-day into the next month. If your bills due between the 1st of next month and your first next-month paycheck exceed your projected rollover balance, you will experience a cash crunch before getting paid.</p>
+        <p><strong>How to resolve it:</strong> Leave extra funds unspent in your current month's Available balance, take funds from Stash, or adjust your bill schedule.</p>
+      </div>
+    </section>
+
+    <section id="calc-stash-paddock">
+      <h3>4. Stash vs. Paddock Savings</h3>
+      <p>Shear Budget distinguishes between two kinds of savings reservations:</p>
+      <ul>
+        <li><strong>Standard Stash ("Ongoing Reserve"):</strong> Money physically held inside your bank account for emergency reserves or long-term goals. It is subtracted directly from Available funds today so you do not spend it. If you set a monthly contribution, Shear Budget automatically adds funds on the 1st of each month until your goal is reached, then automatically stops.</li>
+        <li><strong>Paddock Stash:</strong> Marked with a paddock/fence icon (<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin:0 2px;" aria-hidden="true"><path d="M17.253 1.606v20.578M5.494 1.606v20.578m0-14.698 11.76 8.819m-14.7 0h17.639M2.554 7.486h17.639"/></svg>). Paddock funds are fenced off exclusively to boost next month's opening position (e.g. quarterly insurance,  to cure a pre-paycheck stash dip or cover rent on the 1st).  Like other Stash, Paddock's reduce your current month's Available funds.</li>
+      </ul>
+    </section>
+
+    <section id="calc-water-filling">
+      <h3>5. Water-Filling Earmark Spread Algorithm</h3>
+      <p>When you have unused earmarks (e.g., $300 left for groceries this month), how are they represented on your 30-day projection chart?</p>
+      <p>Shear Budget uses an intelligent <strong>multi-pass water-filling algorithm</strong>:</p>
+      <ul>
+        <li>Instead of dividing your remaining earmarks equally across all 30 days (which could artificially make your balance dip below $0 right before a paycheck), it calculates the <em>headroom</em> available each day.</li>
+        <li>Days before a paycheck only absorb the earmark spending they can afford without dipping into your Stash.</li>
+        <li>Once your paycheck arrives, the remaining days absorb the rest of the planned earmarks evenly. This ensures your daily projection chart reflects realistic, safe spending.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION: UNDERSTANDING THE CHARTS -->
+    <section id="chart-projection">
+      <h2>Understanding Every Chart</h2>
+
+      <h3>1. The 30-Day Daily Cash Flow Projection Chart</h3>
+      <p>This is the centerpiece of the Shear Budget dashboard. It visualizes your projected checking balance for every day from the 1st to the end of the month, accounting for posted balances, pending transactions, bill cliffs, and daily envelope spending.</p>
+
+      <!-- Generic App Window Mockup of the Projection Chart -->
+      <div class="ui-mockup-frame">
+        <div class="mockup-header">
+          <div class="mockup-header-left">
+            <img class="mockup-app-icon" src="/ShearLogoIcon.svg" alt="Shear Budget logo">
+            <span class="mockup-title">Shear Budget™ &mdash; Dashboard</span>
+          </div>
+          <div class="mockup-header-right">
+            <span class="mockup-badge">30-Day Projection</span>
+          </div>
+        </div>
+        <div class="mockup-body">
+          <div class="dashboard-preview">
+
+            <!-- Hero Banner -->
+            <div class="preview-hero">
+              <div class="preview-hero-info">
+                <div class="preview-hero-head">Next month opens with $1,850.00</div>
+                <div class="preview-hero-sub">Bills and earmarks covered &bull; 2 ear tags flagged on calendar</div>
+              </div>
+              <div class="preview-hero-cushion">
+                <div class="preview-hero-label">Available amount</div>
+                <div class="preview-hero-val">$1,420.50</div>
+              </div>
+            </div>
+
+            <!-- Five Summary Cards matching real app -->
+            <div class="preview-metrics-grid">
+              <div class="preview-card">
+                <div class="preview-card-label">Bank balance</div>
+                <div class="preview-card-val">$3,850.00</div>
+              </div>
+              <div class="preview-card">
+                <div class="preview-card-label">Stash</div>
+                <div class="preview-card-val">$1,200.00</div>
+              </div>
+              <div class="preview-card">
+                <div class="preview-card-label">Unpaid bills</div>
+                <div class="preview-card-val">$850.00</div>
+              </div>
+              <div class="preview-card">
+                <div class="preview-card-label">Earmarks left</div>
+                <div class="preview-card-val">$629.50</div>
+              </div>
+              <div class="preview-card">
+                <div class="preview-card-label">Expected income</div>
+                <div class="preview-card-val">$1,800.00</div>
+              </div>
+            </div>
+
+            <!-- SVG Rendered Chart with Red and Yellow Ear Tags -->
+            <div class="chart-container">
+              <div class="chart-header">
+                <div class="chart-title">
+                  <span>Daily Cash Flow Projection &bull; November 2026</span>
+                </div>
+                <div class="chart-legend">
+                  <div class="chart-legend-item"><span class="chart-legend-color" style="background:var(--accent);"></span> Projected Balance</div>
+                  <div class="chart-legend-item"><span class="chart-legend-color" style="background:#d0892b; border-top: 2px dashed #d0892b;"></span> Stash Floor ($1,200)</div>
+                  <div class="chart-legend-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="#d0892b" stroke="#9a5a10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;" aria-hidden="true"><path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z"/><circle cx="12" cy="6" r="1.5"/></svg> Yellow Ear Tag (Recovers)</div>
+                  <div class="chart-legend-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="#c0392b" stroke="#8a1f13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;" aria-hidden="true"><path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z"/><circle cx="12" cy="6" r="1.5"/></svg> Red Ear Tag (Unrecovered)</div>
+                </div>
+              </div>
+
+              <!-- Complete SVG Projection Chart -->
+              <svg viewBox="0 0 820 290" style="width: 100%; height: auto; display: block;" role="img" aria-label="30-day projection chart showing stash dip events with ear tags">
+                <defs>
+                  <!-- Gradient for the area under the curve -->
+                  <linearGradient id="sbChartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#2f7d5b" stop-opacity="0.25" />
+                    <stop offset="60%" stop-color="#2f7d5b" stop-opacity="0.08" />
+                    <stop offset="100%" stop-color="#2f7d5b" stop-opacity="0" />
+                  </linearGradient>
+                  <!-- Pattern for Stash Zone -->
+                  <linearGradient id="stashZoneGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#d0892b" stop-opacity="0.12" />
+                    <stop offset="100%" stop-color="#d0892b" stop-opacity="0.04" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Grid Lines -->
+                <line x1="60" y1="40" x2="790" y2="40" stroke="#dde2ea" stroke-width="1" />
+                <line x1="60" y1="85" x2="790" y2="85" stroke="#dde2ea" stroke-width="1" />
+                <line x1="60" y1="130" x2="790" y2="130" stroke="#dde2ea" stroke-width="1" />
+                <line x1="60" y1="175" x2="790" y2="175" stroke="#dde2ea" stroke-width="1" />
+                <line x1="60" y1="225" x2="790" y2="225" stroke="#8b96a8" stroke-width="1" stroke-dasharray="4,4" />
+
+                <!-- Y-Axis labels -->
+                <text x="52" y="44" fill="#6b7686" font-size="10" text-anchor="end" font-family="system-ui">$4,000</text>
+                <text x="52" y="89" fill="#6b7686" font-size="10" text-anchor="end" font-family="system-ui">$3,000</text>
+                <text x="52" y="134" fill="#6b7686" font-size="10" text-anchor="end" font-family="system-ui">$2,000</text>
+                <text x="52" y="169" fill="#d0892b" font-size="10" font-weight="bold" text-anchor="end" font-family="system-ui">$1,200</text>
+                <text x="52" y="179" fill="#6b7686" font-size="10" text-anchor="end" font-family="system-ui">$1,000</text>
+                <text x="52" y="229" fill="#6b7686" font-size="10" text-anchor="end" font-family="system-ui">$0</text>
+
+                <!-- Stash Reserve Zone (shaded region between $1200 floor at y=166 and $0 baseline at y=225) -->
+                <rect x="60" y="166" width="730" height="59" fill="url(#stashZoneGrad)" />
+                <line x1="60" y1="166" x2="790" y2="166" stroke="#d0892b" stroke-width="1.5" stroke-dasharray="5,4" />
+                <text x="785" y="161" fill="#d0892b" font-size="10" font-weight="700" text-anchor="end" font-family="system-ui">Stash Reserve Floor ($1,200)</text>
+
+                <!-- Ear Tag Top Zone Boundary Line -->
+                <line x1="60" y1="32" x2="790" y2="32" stroke="#dde2ea" stroke-width="1" stroke-dasharray="2,2" />
+                <text x="64" y="26" fill="#8b96a8" font-size="9" font-weight="600" text-transform="uppercase" letter-spacing="0.05em">Calendar Ear Tags</text>
+
+                <!-- Area fill under the balance curve -->
+                <path d="M 70,88 
+                         L 90,140 L 220,152 
+                         L 245,185 L 390,195 
+                         L 415,65 L 590,95 
+                         L 625,195 L 720,205 
+                         L 780,210 L 780,225 L 70,225 Z"
+                      fill="url(#sbChartGrad)" />
+
+                <!-- Projected Balance Line: Green when above stash, turns yellow on temporary dip, turns red on permanent dip -->
+                <!-- Nov 1 to Nov 7: Healthy ($2800 -> $1600 -> $1450) -->
+                <path d="M 70,88 L 90,140 L 220,152"
+                      fill="none" stroke="#2f7d5b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Nov 8: Car repair drops to $850 (DIP INTO STASH - RECOVERED, Yellow line) -->
+                <path d="M 220,152 L 245,185 L 390,195"
+                      fill="none" stroke="#d0892b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Nov 15: Paycheck surges to $2550 and stays healthy to Nov 22 (Green line) -->
+                <path d="M 390,195 L 415,65 L 590,95"
+                      fill="none" stroke="#2f7d5b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Nov 23: Insurance premium plunges to $600 (DIP INTO STASH - UNRECOVERED, Red line) -->
+                <path d="M 590,95 L 625,195 L 720,205 L 780,210"
+                      fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Vertical drop-down guides connecting Ear Tags to curve points -->
+                <!-- Yellow Dip Guide (Nov 8) -->
+                <line x1="245" y1="28" x2="245" y2="185" stroke="#d0892b" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.8" />
+                <!-- Red Dip Guide (Nov 23) -->
+                <line x1="625" y1="28" x2="625" y2="195" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.8" />
+
+                <!-- ============================================== -->
+                <!-- YELLOW EAR TAG EXAMPLE: RECOVERED STASH DIP    -->
+                <!-- ============================================== -->
+                <g class="eartag yellow-tag" transform="translate(235, 6)">
+                  <!-- Authentic livestock ear tag SVG shape from BBIcons.earTag -->
+                  <path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" fill="#d0892b" stroke="#9a5a10" stroke-width="1.5" />
+                  <circle cx="12" cy="6" r="1.5" fill="#ffffff" />
+                </g>
+                <circle cx="245" cy="185" r="4.5" fill="#d0892b" stroke="#ffffff" stroke-width="1.5" />
+                <!-- Callout Card for Yellow Tag -->
+                <g transform="translate(245, 12)">
+                  <rect x="18" y="-4" width="158" height="26" rx="4" fill="#ffffff" stroke="#d0892b" stroke-width="1" />
+                  <text x="24" y="6" fill="#a86a16" font-size="8.5" font-weight="700" font-family="system-ui">Nov 8: Dips to $850 (In Stash)</text>
+                  <text x="24" y="17" fill="#1f8a4c" font-size="8" font-weight="600" font-family="system-ui">✓ Recovers on Nov 15 paycheck</text>
+                </g>
+
+                <!-- ============================================== -->
+                <!-- RED EAR TAG EXAMPLE: UNRECOVERED STASH DIP     -->
+                <!-- ============================================== -->
+                <g class="eartag red-tag" transform="translate(615, 6)">
+                  <!-- Authentic livestock ear tag SVG shape from BBIcons.earTag -->
+                  <path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" fill="#c0392b" stroke="#8a1f13" stroke-width="1.5" />
+                  <circle cx="12" cy="6" r="1.5" fill="#ffffff" />
+                </g>
+                <circle cx="625" cy="195" r="4.5" fill="#c0392b" stroke="#ffffff" stroke-width="1.5" />
+                <!-- Callout Card for Red Tag -->
+                <g transform="translate(625, 12)">
+                  <rect x="-162" y="-4" width="152" height="26" rx="4" fill="#ffffff" stroke="#c0392b" stroke-width="1" />
+                  <text x="-156" y="6" fill="#c0392b" font-size="8.5" font-weight="700" font-family="system-ui">Nov 23: Dips to $600 (In Stash)</text>
+                  <text x="-156" y="17" fill="#c0392b" font-size="8" font-weight="600" font-family="system-ui">⚠️ Stays below stash at month end</text>
+                </g>
+
+                <!-- Event Markers on Chart Curve -->
+                <!-- Nov 1 Rent cliff -->
+                <polygon points="90,132 86,124 94,124" fill="#8b96a8" />
+                <text x="96" y="128" fill="#6b7686" font-size="8.5" font-weight="600">Rent ($1,200)</text>
+
+                <!-- Nov 15 Paycheck surge -->
+                <polygon points="415,75 411,83 419,83" fill="#1f8a4c" />
+                <text x="422" y="80" fill="#1f8a4c" font-size="9" font-weight="bold">Paycheck (+$1,800)</text>
+
+                <!-- Nov 23 Insurance cliff -->
+                <polygon points="625,185 621,177 629,177" fill="#c0392b" />
+                <text x="632" y="182" fill="#c0392b" font-size="8.5" font-weight="600">Insurance ($1,750)</text>
+
+                <!-- X-Axis Date Ticks -->
+                <text x="70" y="244" fill="#6b7686" font-size="10" font-family="system-ui" text-anchor="middle">Nov 1</text>
+                <text x="245" y="244" fill="#d0892b" font-size="10" font-weight="bold" font-family="system-ui" text-anchor="middle">Nov 8</text>
+                <text x="415" y="244" fill="#1f8a4c" font-size="10" font-weight="bold" font-family="system-ui" text-anchor="middle">Nov 15</text>
+                <text x="625" y="244" fill="#c0392b" font-size="10" font-weight="bold" font-family="system-ui" text-anchor="middle">Nov 23</text>
+                <text x="780" y="244" fill="#6b7686" font-size="10" font-family="system-ui" text-anchor="middle">Nov 30</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4>Reading the Elements of the Chart:</h4>
+      <ul>
+        <li><strong>Green Balance Curve:</strong> Shows your expected bank account balance on each day of the month.</li>
+        <li><strong>Amber Dashed Line (Stash Floor):</strong> The total amount reserved in your Stash ($1,200 in this example). Money below this line is your emergency/goal reserve.</li>
+        <li><strong>Downward Triangles (Bills):</strong> Slate triangles mark days where fixed bills and subscriptions are scheduled.</li>
+        <li><strong>Upward Triangles (Income):</strong> Green triangles mark paydays and verified expected deposits.</li>
+        <li><strong>Gentle Downward Slopes:</strong> Daily earmark envelope spending being consumed smoothly across the days.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION: EAR TAGS & STASH DIPS EXPLAINED -->
+    <section id="chart-eartags">
+      <h3>2. Ear Tags &amp; Stash Dips (Red vs. Yellow Explained)</h3>
+      <p>Why does Shear Budget use livestock ear tags? In ranching, ear tags uniquely identify individual animals that need close observation. In Shear Budget, <strong>ear tags flag specific days on your cash-flow calendar where your bank balance crosses into a risk state</strong>.</p>
+
+      <div class="eartag-explanation-grid">
+        <div class="eartag-card yellow-border">
+          <div class="eartag-card-head" style="color: var(--amber);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" fill="var(--amber)" stroke="var(--amber)"/>
+              <circle cx="12" cy="6" r="1.5" fill="#fff"/>
+            </svg>
+            <span>Yellow Ear Tag: Dips into Stash (Recovers)</span>
+          </div>
+          <p><strong>What happened:</strong> On November 8th, a large unexpected car repair ($650) caused the checking balance to drop to $850, dipping $350 into the $1,200 Stash reserve.</p>
+          <p><strong>Why it is Yellow:</strong> A scheduled paycheck of +$1,800 lands on November 15th <em>before any subsequent bill is due</em>. Because your account recovers above the Stash floor without risking an overdraft or an unpaid bill, Shear Budget flags it in <strong>yellow</strong>.</p>
+          <p><em>Action required:</em> None urgently required. The yellow ear tag keeps you informed of the temporary dip while assuring you that upcoming obligations are safe.</p>
+        </div>
+
+        <div class="eartag-card red-border">
+          <div class="eartag-card-head" style="color: var(--neg);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" fill="var(--neg)" stroke="var(--neg)"/>
+              <circle cx="12" cy="6" r="1.5" fill="#fff"/>
+            </svg>
+            <span>Red Ear Tag: Dips into Stash (Unrecovered)</span>
+          </div>
+          <p><strong>What happened:</strong> On November 23rd, an annual insurance bill ($1,750) drove the balance down to $600 ($600 into Stash), with electric utilities still due on Nov 27th.</p>
+          <p><strong>Why it is Red:</strong> The balance remains below Stash through the end of the month. Even though an end-of-month paycheck lands on Nov 30th, the <strong>Final Paycheck Rule</strong> designates that paycheck to pay December 1st rent. It cannot be spent in November.</p>
+          <p><em>Action required:</em> <strong>Immediate attention needed.</strong> You should transfer funds from an outside savings account, reduce discretionary earmarks, or slide an eligible non-autopay bill to avoid a deficit.</p>
+        </div>
+      </div>
+
+      <h4>Other Ear Tags You May See:</h4>
+      <ul>
+        <li><svg viewBox="0 0 24 24" width="15" height="15" fill="#c0392b" stroke="#c0392b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;" aria-hidden="true"><path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z"/><circle cx="12" cy="6" r="1.5"/></svg> <strong>Slid Bill Ear Tag (<code>proj-bill-slide-icon</code>):</strong> Placed on the date of a non-autopay bill with a grace period that has been slid forward to payday to protect your Stash.</li>
+        <li><svg viewBox="0 0 24 24" width="15" height="15" fill="#c0392b" stroke="#c0392b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;" aria-hidden="true"><path d="M8 2h8l4 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z"/><circle cx="12" cy="6" r="1.5"/></svg> <strong>Unfunded Earmarks Ear Tag (<code>proj-unfunded-earmarks-icon</code>):</strong> Placed at month end when planned earmark envelopes exceed available cash flow.</li>
+        <li><strong>Stash Card Ear Tag Badge:</strong> The Stash card on your dashboard displays a yellow or red ear tag trigger if any day in the month dips into your Stash reserves.</li>
+      </ul>
+    </section>
+
+    <section id="chart-bill-sliding">
+      <h3>3. Bill Sliding Algorithm (Grace Periods)</h3>
+      <p>Have you ever had a bill due on the 3rd, but your paycheck arrives on the 5th, and the company offers a grace period until the 10th without late fees?</p>
+      <p>Shear Budget includes an automatic <strong>Bill Sliding</strong> engine:</p>
+      <ul>
+        <li>If a bill has a <code>lateDate</code> (e.g. 10th) and is <em>not</em> marked as Autopay, Shear Budget checks if paying it on the 3rd would dip your account into Stash.</li>
+        <li>If a dip would occur, Shear Budget slides the bill to your payday (the 5th) on the projection chart, showing you that you can safely wait for your paycheck to arrive before paying the bill.</li>
+        <li>Autopay bills <em>never</em> slide, because your bank will automatically process them on the exact due date.</li>
+      </ul>
+    </section>
+
+    <section id="chart-donuts">
+      <h3>4. Other Spending &amp; Earmarks Donut Charts</h3>
+      <p>Shear Budget displays two specialized donut charts:</p>
+      <ul>
+        <li><strong>Earmarks Donut:</strong> Displays your planned budget categories (Groceries, Dining, Fuel, Entertainment) showing the proportion of planned funds spent vs. remaining.</li>
+        <li><strong>Other Spending Donut:</strong> Highlights transactions that do <em>not</em> belong to a bill or an earmark. This reveals hidden leaks in your budget that are eroding your Available Fun Money. Slices representing less than 3% of spending are automatically grouped into "Other" to keep the visual representation clean.</li>
+      </ul>
+    </section>
+
+    <section id="chart-trends">
+      <h3>5. Account Balance &amp; Debt Trends</h3>
+      <p>In the Accounts view, Shear Budget projects long-term trends for up to 12 months ahead:</p>
+      <ul>
+        <li><strong>Checking &amp; Savings Trend:</strong> Models your cash growth by compounding your monthly income minus recurring expenses and planned additions.</li>
+        <li><strong>Debt Paydown Trend:</strong> Projects credit card and loan balances downwards based on your monthly payments towards principal, capping at $0 when fully paid off.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION: HOW-TO GUIDES -->
+    <section id="guide-banks">
+      <h2>Step-by-Step "How-To" Guides</h2>
+
+      <h3>1. Bank Accounts &amp; Statement Import</h3>
+      <p>You can manage accounts manually, import statements, or connect your bank automatically via Plaid (available on Shear Budget Plus, supporting up to 5 bank institutions with multiple accounts each).</p>
+
+      <h4>How to Import Bank CSV, OFX, or QFX Files:</h4>
+      <ol>
+        <li>Go to <strong>Settings &gt; Bank accounts</strong> or click the <strong>Import</strong> icon (<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin:0 2px;" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>) on the Transactions toolbar.</li>
+        <li>Under <strong>Put transactions on this account</strong>, select your target account.</li>
+        <li>Click <strong>Choose File</strong> and select your downloaded <code>.csv</code>, <code>.ofx</code>, or <code>.qfx</code> file.</li>
+        <li>If importing CSV for the first time, map the columns for <strong>Date</strong>, <strong>Amount</strong>, and <strong>Description</strong>. Shear Budget automatically remembers your column mappings for future imports.</li>
+        <li>Click <strong>Import</strong>. Shear Budget automatically applies your categorization rules to new transactions and skips any duplicates.</li>
+      </ol>
+
+      <div class="callout callout-info">
+        <div class="callout-title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg> Free Tier Account Limit Handling</div>
+        <p>The Free tier includes up to <strong>3 bank accounts</strong>. If you are at your 3-account limit and import a file from a different bank, Shear Budget will prompt you to choose which existing account to replace with the imported data.</p>
+      </div>
+    </section>
+
+    <section id="guide-transactions">
+      <h3>2. Transactions &amp; Bulk Actions</h3>
+      <p>The Transactions view provides full control over your ledger.</p>
+
+      <!-- Generic App Window Mockup of Transactions Batch Bar -->
+      <div class="ui-mockup-frame">
+        <div class="mockup-header">
+          <div class="mockup-header-left">
+            <img class="mockup-app-icon" src="/ShearLogoIcon.svg" alt="Shear Budget logo">
+            <span class="mockup-title">Shear Budget™ &mdash; Transactions</span>
+          </div>
+          <div class="mockup-header-right">
+            <span class="mockup-badge">Batch Selection</span>
+          </div>
+        </div>
+        <div class="mockup-body" style="padding: 16px 20px;">
+          <!-- Selection Bar matching .tx-selection-bar in styles.css -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border); padding: 8px 14px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 0.88rem;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <input type="checkbox" checked style="accent-color: var(--accent); width: 16px; height: 16px; cursor: pointer;">
+              <span style="color: var(--text-muted); font-weight: 500;"><strong>3 transactions selected</strong> &bull; $142.80 total</span>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" style="background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 5px 12px; border-radius: 4px; font-weight: 600; font-size: 0.82rem; cursor: pointer;">Bulk Categorize</button>
+              <button type="button" style="background: var(--neg); border: 1px solid var(--neg); color: #ffffff; padding: 5px 12px; border-radius: 4px; font-weight: 600; font-size: 0.82rem; cursor: pointer;">Delete Selected</button>
+            </div>
+          </div>
+
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; color: var(--text);">
+            <tr style="border-bottom: 2px solid var(--border); background: var(--bg-surface);">
+              <th style="text-align: left; padding: 8px 10px;"><input type="checkbox" checked style="accent-color: var(--accent);"></th>
+              <th style="text-align: left; padding: 8px 10px; color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Date</th>
+              <th style="text-align: left; padding: 8px 10px; color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Description</th>
+              <th style="text-align: left; padding: 8px 10px; color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Category</th>
+              <th style="text-align: right; padding: 8px 10px; color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Amount</th>
+            </tr>
+            <tr style="background: rgba(47, 125, 91, 0.08); border-bottom: 1px solid var(--border);">
+              <td style="padding: 10px;"><input type="checkbox" checked style="accent-color: var(--accent);"></td>
+              <td style="padding: 10px; color: var(--text-muted);">Nov 03</td>
+              <td style="padding: 10px; font-weight: 500;">TRADER JOE'S #142 <span style="background: var(--amber); color: #000; font-size: 0.65rem; padding: 1px 5px; border-radius: 3px; font-weight: 700; margin-left: 6px;">UNTIED</span></td>
+              <td style="padding: 10px;"><span style="color: var(--accent); font-weight: 600;">Groceries</span></td>
+              <td style="text-align: right; padding: 10px; font-weight: 600; color: var(--text);">$64.20</td>
+            </tr>
+            <tr style="background: rgba(47, 125, 91, 0.08); border-bottom: 1px solid var(--border);">
+              <td style="padding: 10px;"><input type="checkbox" checked style="accent-color: var(--accent);"></td>
+              <td style="padding: 10px; color: var(--text-muted);">Nov 02</td>
+              <td style="padding: 10px; font-weight: 500;">SAFEWAY STORE 0841</td>
+              <td style="padding: 10px;"><span style="color: var(--accent); font-weight: 600;">Groceries</span></td>
+              <td style="text-align: right; padding: 10px; font-weight: 600; color: var(--text);">$48.50</td>
+            </tr>
+            <tr style="background: rgba(47, 125, 91, 0.08);">
+              <td style="padding: 10px;"><input type="checkbox" checked style="accent-color: var(--accent);"></td>
+              <td style="padding: 10px; color: var(--text-muted);">Nov 01</td>
+              <td style="padding: 10px; font-weight: 500;">WHOLE FOODS MARKET</td>
+              <td style="padding: 10px;"><span style="color: var(--accent); font-weight: 600;">Groceries</span></td>
+              <td style="text-align: right; padding: 10px; font-weight: 600; color: var(--text);">$30.10</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <h4>Features of the Transactions View:</h4>
+      <ul>
+        <li><strong>Multi-Row Selection:</strong> Click checkboxes or use <code>Shift + Click</code> to select a contiguous range of transactions.</li>
+        <li><strong>Bulk Categorize:</strong> Apply a single category to multiple transactions at once. Shear Budget will offer to create an automatic rule from the common pattern.</li>
+        <li><strong>Untied Filter:</strong> The <span style="background:var(--amber); color:#000; font-size:0.7rem; padding:1px 5px; border-radius:3px; font-weight:700;">UNTIED</span> badge indicates spending that has not been linked to a bill or an earmark envelope. Use the <em>Untied</em> filter to clean up your budget.</li>
+        <li><strong>Split Transactions:</strong> Click any transaction to split it across multiple categories (e.g., splitting a $100 Target receipt into $70 Groceries and $30 Household).</li>
+      </ul>
+    </section>
+
+    <section id="guide-earmarks">
+      <h3>3. Earmarks (Envelope Spending)</h3>
+      <p>Earmarks represent discretionary spending envelopes for categories like Groceries, Dining Out, Fuel, and Hobbies.</p>
+      <ul>
+        <li><strong>Monthly Budget:</strong> Set your target monthly allowance for the category.</li>
+        <li><strong>Overage Protection:</strong> When you spend more than planned in an earmark, Shear Budget highlights the excess in red and deducts the overage directly from your Available Fun Money.</li>
+        <li><strong>Create Earmarks &amp; Paddocks:</strong> Click the <strong>Add earmark</strong> icon (<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin:0 2px;" aria-hidden="true"><path d="M15.539.264c-1.527-.006-3.129.323-4.58.678-2.763.645-5.294 2.47-7.452 4.261l.041.01C2.45 6.204 1.316 7.599.87 8.477c-.687 1.348-.877 3.319-.46 4.8a8.7 8.7 0 0 0 1.127 2.404c.31.456 1.78 2.193 1.804 2.137.006-.013-.16-.317-.363-.683a13.4 13.4 0 0 1-1.134-2.499c-.344-1.057-.486-2.053-.408-2.953.171-1.967.656-2.857 2.588-4.776C5.7 5.251 7.264 4.13 9.266 3.175c1.054-.506 3.389-1.201 4.42-1.32 1.247-.138 3.927-.108 4.052.047-.045.024-.26.044-.51.044-1.568-.002-4.686.663-6.02 1.28-1.851.85-3 1.874-4 3.54-.486.81-1.16 2.487-1.384 3.405-.222 1.597-.805 2.965-1.64 4.282-.459.762-.49 1.003-.141 1.176.177.091.218.06 1.14-.73 1.208-1.033 1.442-1.41 1.812-2.921.716-2.892 1.215-4.188 2.039-5.332 1.554-2.155 4.388-3.584 8.307-4.222a13 13 0 0 0 1.158-.244c.447-.126.508-.122.503 0 .002.08-.01.474-.01.865 0 .683-.164 1.877-.312 2.248-.056.157-.135.168-1.52.276-1.345.077-2.472.433-3.726 1.046-.59.971-.293 2.353-.097 3.443l.158.78c.287.702.371.89-.032 1.456-1.198 1.03-2.15 1.757-4.152 2.46-1.694.585-2.12.785-2.742 1.252-.97.735-1.625 1.833-1.716 2.873.498 1.739.96-.24 1.66-1.069.733-.648 1.426-1.003 2.692-1.359.9-.192 1.934-.764 2.568-1.121 1.303-.578 2.289-1.325 3.157-2.384.266-.306.134-.349.058-.58-.3-1.712-1.535-3.505-.284-4.811.365-.203 3.88-.527 4.826-.773.58-.152.762-.856.806-3.24.023-1.03-.077-2.248-.21-2.432-.048-.066-.27-.183-.502-.259-.454-.144-1.942-.4-2.591-.458a8.7 8.7 0 0 0-1.494-.129M17.92 12.33v3.626h-3.627v2.418h3.627V22h2.417v-3.627h3.627v-2.418h-3.627V12.33z" fill="currentColor" stroke="none"/></svg>) to create standard envelopes, or <strong>Add Paddock</strong> (<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin:0 2px;" aria-hidden="true"><path d="M2 9h12M2 15h12M4 9l8 6M4 5v14m8-14v14m7-10v6m-3-3h6"/></svg>) to set aside funds exclusively for next month.</li>
+        <li><strong>Fund Earmark / Rebalance:</strong> Open any earmark's menu to select <em>"Fund earmark"</em> or <em>"Take from another earmark"</em> to move funds between envelopes when priorities change.</li>
+      </ul>
+    </section>
+
+    <section id="guide-bills">
+      <h3>4. Bills &amp; Recurring Obligations</h3>
+      <p>Bills represent fixed, recurring obligations (Rent, Electric, Phone, Car Insurance, Netflix).</p>
+      <ul>
+        <li><strong>Recurrence Rules:</strong> Supports Monthly, Bi-weekly, Weekly, Semi-monthly, and Annual schedules.</li>
+        <li><strong>Autopay Flag:</strong> Mark bills that automatically draft from your checking account. Autopay bills stay locked to their scheduled date.</li>
+        <li><strong>Grace Period / Late Date:</strong> Set the final date a bill can be paid without penalties. Non-autopay bills can slide up to this date on the projection chart if cash is tight before payday.</li>
+        <li><strong>Payment Linking:</strong> When your bank transaction posts, link it to the bill. The bill marks as Paid and will not be deducted twice.</li>
+      </ul>
+    </section>
+
+    <section id="guide-rules">
+      <h3>5. Categories &amp; Auto-Categorization Rules</h3>
+      <p>Located in <strong>Settings &gt; Categories and rules</strong>.</p>
+      <ul>
+        <li><strong>Matching Modes:</strong>
+          <ul>
+            <li><code>Contains</code>: Matches any description containing the text (e.g. <code>netflix</code>).</li>
+            <li><code>Regex</code>: Advanced regular expression matching (e.g. <code>amazon|amzn|prime</code>).</li>
+            <li><code>Wildcard</code>: Use <code>*</code> and <code>?</code> patterns (e.g. <code>CHEVRON*</code>).</li>
+          </ul>
+        </li>
+        <li><strong>Execution Order:</strong> Rules execute sequentially from top to bottom. The first matching rule assigns the category.</li>
+        <li><strong>Apply to Existing:</strong> Click <em>"Apply to existing"</em> to run your rules across your historical transactions.</li>
+      </ul>
+    </section>
+
+    <section id="guide-backup">
+      <h3>6. Backup, Export &amp; Danger Zone</h3>
+      <p>Shear Budget puts you in complete control of your financial data:</p>
+
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Location</th>
+            <th>Description &amp; Security</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Export Backup</strong></td>
+            <td>Settings &gt; Backup</td>
+            <td>Downloads an encrypted JSON backup containing your accounts, transactions, bills, earmarks, and stash. Safe for cloud storage.</td>
+          </tr>
+          <tr>
+            <td><strong>Import Backup</strong></td>
+            <td>Settings &gt; Backup</td>
+            <td>Restores a previously exported encrypted backup file onto your device.</td>
+          </tr>
+          <tr>
+            <td><strong>Export CSVs</strong></td>
+            <td>Settings &gt; Export</td>
+            <td>Exports clean CSV spreadsheets of your transactions, bills, and categorization rules for Excel or tax prep.</td>
+          </tr>
+          <tr>
+            <td><strong>Export Budget JSON</strong></td>
+            <td>Settings &gt; Danger Zone</td>
+            <td>Downloads an <strong>unencrypted</strong> raw JSON file of your entire budget. Keep this file secure!</td>
+          </tr>
+          <tr>
+            <td><strong>Delete Budget</strong></td>
+            <td>Settings &gt; Danger Zone</td>
+            <td>Permanently wipes all local budget data and key files from this computer.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="guide-tiers">
+      <h3>7. Plans &amp; Tier Limits</h3>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free Tier</th>
+            <th>Shear Budget Sync</th>
+            <th>Shear Budget Plus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bank Accounts</strong></td>
+            <td>Up to 3 accounts</td>
+            <td>Up to 6 accounts (double Free)</td>
+            <td>Unlimited accounts</td>
+          </tr>
+          <tr>
+            <td><strong>Categories</strong></td>
+            <td>Built-in categories</td>
+            <td>Custom categories (up to 50 total)</td>
+            <td>Unlimited custom categories</td>
+          </tr>
+          <tr>
+            <td><strong>Earmarks (Envelopes)</strong></td>
+            <td>Up to 8 earmarks</td>
+            <td>Up to 16 earmarks (double Free)</td>
+            <td>Unlimited earmarks</td>
+          </tr>
+          <tr>
+            <td><strong>Bills &amp; Subscriptions</strong></td>
+            <td>Up to 15 bills</td>
+            <td>Up to 30 bills (double Free)</td>
+            <td>Unlimited bills</td>
+          </tr>
+          <tr>
+            <td><strong>Cloud Sync</strong></td>
+            <td>Offline on this device</td>
+            <td>Encrypted Multi-Device Sync</td>
+            <td>Encrypted Multi-Device Sync</td>
+          </tr>
+          <tr>
+            <td><strong>Plaid Bank Feeds</strong></td>
+            <td>Manual CSV/OFX/QFX import</td>
+            <td>Manual CSV/OFX/QFX import</td>
+            <td>Automated bank connections (up to 5 institutions with multiple accounts each)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer style="margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--text-subtle); font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div>Shear Budget™ by <a href="https://eaglesoftware.eaglebuttellc.com" style="color:inherit;text-decoration:underline;">Eagle Butte Software</a> &bull; © 2026 Eagle Butte Software LLC &bull; All Rights Reserved</div>
+      <div style="display:flex;gap:16px;">
+        <a href="/" style="color:inherit;">Overview</a>
+        <a href="/account" style="color:inherit;">Account</a>
+        <a href="/privacy" style="color:inherit;">Privacy</a>
+        <a href="/terms" style="color:inherit;">Terms</a>
+        <a href="#intro" style="color:inherit;">Back to top ↑</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    // Mobile TOC toggle
+    const mobileTocBtn = document.getElementById('mobile-toc-btn');
+    const guideSidebar = document.getElementById('guide-sidebar');
+    const mobileTocLabel = document.getElementById('mobile-toc-btn-label');
+    if (mobileTocBtn && guideSidebar) {
+      mobileTocBtn.addEventListener('click', () => {
+        const isOpen = guideSidebar.classList.toggle('is-open');
+        mobileTocBtn.setAttribute('aria-expanded', String(isOpen));
+        if (mobileTocLabel) mobileTocLabel.textContent = isOpen ? 'Close' : 'Topics';
+      });
+      // Close sidebar when a navigation link is clicked on mobile
+      guideSidebar.querySelectorAll('.nav-item a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 820) {
+            guideSidebar.classList.remove('is-open');
+            mobileTocBtn.setAttribute('aria-expanded', 'false');
+            if (mobileTocLabel) mobileTocLabel.textContent = 'Topics';
+          }
+        });
+      });
+    }
+
+    // Live Search Filter for Help Topics
+    function filterGuide() {
+      const query = document.getElementById('help-search').value.toLowerCase().trim();
+      if (!query) {
+        document.querySelectorAll('.nav-item').forEach(el => el.style.display = '');
+        return;
+      }
+      document.querySelectorAll('.nav-item').forEach(el => {
+        const text = el.textContent.toLowerCase();
+        el.style.display = text.includes(query) ? '' : 'none';
+      });
+    }
+
+    // Scroll spy for sidebar links
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      document.querySelectorAll('.nav-item a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) {
+          a.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
